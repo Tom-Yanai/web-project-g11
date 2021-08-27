@@ -20,3 +20,13 @@
     font-family: alphab;
     font-size: 15px;
 }
+
+.footer {
+    background-color: #397e6c;
+    display: grid;
+    font-family: Tahoma;
+    grid-template-columns: auto;
+    grid-template-rows: 80px;
+    height: 80px;
+    justify-items: center;
+}

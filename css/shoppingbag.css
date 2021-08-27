@@ -1,0 +1,81 @@
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 115px 180px 180px 180px;
+    justify-items: center;
+    font-family: cursive;
+    background: url(../image/wheet.jpg);
+    background-size: cover;
+}
+
+
+#img {
+    border: dotted #397e6c;
+}
+
+
+.mybag {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    left: 60%;
+}
+
+.bag {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.shirt2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.earrings {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.shirt {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.total {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.checkoutbutton {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+
+.Add {
+    background-color: wheat;
+    font-size: 25px;
+    font-family: cursive;
+    padding: 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: pulse 4s infinite;
+}

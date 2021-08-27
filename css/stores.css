@@ -1,0 +1,172 @@
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 115px 180px 180px 180px;
+    justify-items: center;
+    font-family: cursive;
+    background: url(../image/wheet.jpg);
+    background-size: cover;
+}
+
+
+#img {
+    border: dotted #397e6c;
+}
+
+
+.friends {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+.brenda {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.danit {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.neta {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.shay {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.tom {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.lihi {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.interesting {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    text-align: center;
+}
+
+.nitzan {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.noa {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+}
+
+.gal {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.maya {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    text-align: center;
+}
+
+.tamar {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.adi {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+
+.text1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    text-decoration: none;
+    text-align: center;
+    color: #f4b7c7;
+    font-size: 20px;
+}
+
+
+
+
+#popup:hover {
+    width: 210px;
+}
+
+
+.filterDiv {
+    margin: 2px;
+    display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+.btn {
+    font-weight: bold;
+    font-family: cursive;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    margin: 20px;
+    background-color: #f4b7c7;
+    cursor: pointer;
+}
+
+    /* Add a light grey background on mouse-over */
+    .btn:hover {
+        background-color: #ddd;
+    }
+
+    /* Add a dark background to the active button */
+    .btn.active {
+        background-color: #cc96a5;
+    }
