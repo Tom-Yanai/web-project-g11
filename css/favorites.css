@@ -1,7 +1,7 @@
-.grid-container2 {
+﻿.grid-container2 {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 100px 270px 100px 80px;
+    grid-template-rows: 100px 270px 100px 80px 100px;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
@@ -42,7 +42,6 @@ body {
 }
 
 .item3 {
-
     padding: 20px;
     border: 2px solid white;
     margin: 20px;
@@ -67,10 +66,8 @@ body {
     border: 2px solid white;
     margin: 20px;
     background-color: antiquewhite;
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-column: 1;
+    grid-row: 3;
 }
 
 .details2 {
@@ -79,10 +76,8 @@ body {
     border: 2px solid white;
     margin: 20px;
     background-color: antiquewhite;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-column: 2;
+    grid-row: 3;
 }
 
 .details3 {
@@ -91,10 +86,8 @@ body {
     border: 2px solid white;
     margin: 20px;
     background-color: antiquewhite;
-    grid-column-start: 3;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-column: 3;
+    grid-row: 3;
 }
 
 .details4 {
@@ -103,34 +96,46 @@ body {
     border: 2px solid white;
     margin: 20px;
     background-color: antiquewhite;
-    grid-column-start: 4;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-column: 4;
+    grid-row: 3;
+ 
 }
 
 .total {
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column: 1;
     grid-row: 4;
     text-align: center;
 }
 
-.checkoutbutton {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row: 5;
+.addtocart1 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.addtocart2 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.addtocart3 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.addtocart4 {
+    grid-column: 4;
+    grid-row: 4;
 }
 
 .Add {
     background-color: wheat;
-    font-size: 25px;
+    font-size: 15px;
     font-family: cursive;
     padding: 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    border-radius: 50%;
+    border-radius: 30%;
     animation: pulse 4s infinite;
 }

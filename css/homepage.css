@@ -1,9 +1,89 @@
+:root {
+    --darkGreen: #526f2f;
+    --myLightBackgroung: rgb(154,122,97,0.5);
+    --mynew: rgb(240,222,206);
+    --mynewlighter: rgb(240,222,206, 0.9);
+    --LightGreen: #a4d28a;
+}
+
+body {
+    background-image: url(../image/whiteFlowers.jpg);
+    background-size: cover;
+    padding: 50px;
+    border: 1px solid white;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+@font-face {
+    font-family: latoBold;
+    src: url("../Lato-Bold.ttf");
+}
+
+@font-face {
+    font-family: lato;
+    src: url("../Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: varela;
+    src: url("../VarelaRound-Regular.ttf");
+}
+
+.grid-container1 {
+    grid-template-areas:
+        'header header header header'
+        'item1 item2 item3 item4'
+        'details1 details2 details3 details4'
+        'footer footer footer footer';
+
+    grid-template-columns: 100px auto;
+    grid-template-rows: 120px;
+    padding: 10px;
+    background-color: var(--myLightBackgroung);
+    border-radius: 10px;
+}
+
+.header {
+    height: 120px;
+    grid-row: 1 / span 1;
+}
+
+.logoImg {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+#logoImg {
+    background-color: lightpink;
+    border-radius: 100%;
+    width: 100px;
+    padding: 1px;
+}
+
+.titleName {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-align: left;
+    padding-left: 20px;
+    text-align: center;
+}
+
+#titleName {
+    color: var(--mynew);
+    text-decoration: none;
+    font-family: latoBold;
+    font-size: 80px;
+    text-align: center;
+}
+
 .nav {
     display: grid;
     grid-template-columns: 850px auto;
     grid-template-rows: 80px;
     height: 80px;
-    font-family: Tahoma;
+    font-family: lato;
+    background-color: #397e6c;
 }
 
 .navbar {
@@ -11,22 +91,293 @@
     background-color: #397e6c;
     word-spacing: 60px;
     text-align: left;
+    padding-top: 10px;
     padding-left: 80px;
+    float: right;
 }
+
+
+.connect {
+    grid-column: 2 / span 1;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#connectImg {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.grid-container2 {
+    display: grid;
+    text-align: center;
+    font-family: latoBold;
+    grid-template-columns: 345px auto;
+    background-color: var(--myLightBackgroung);
+}
+
+
+.newEvents {
+    /* grid-column: 300; */
+    grid-row: 1/ 4;
+    background-color: var(--mynewlighter);
+    /* padding: 40px; */
+    border: 2px solid white;
+    margin: 20px;
+    text-align: center;
+    font-family: varela;
+}
+
+#eventsPic {
+    /* grid-column: 2 / span 3;
+ grid-row: 1 / span 1;  */
+    width: 300px;
+    height: 300px;
+    background-image: url("../image/2girls.jpeg");
+    background-size: 100% 100%;
+    text-align: center;
+    animation: anim1 ease-in-out 30s infinite;
+}
+
+@keyframes anim1 {
+    0% {
+        background-image: url("../image/2girls.jpeg");
+    }
+
+    20% {
+        background-image: url("../image/jeans.jpeg");
+    }
+
+    40% {
+        background-image: url("../image/tahana.jpeg");
+    }
+
+    60% {
+        background-image: url("../image/krembo.jpeg");
+    }
+
+    80% {
+        background-image: url("../image/elegant.jpeg");
+    }
+
+    100% {
+        background-image: url("../image/2girls.jpeg");
+    }
+}
+
+span::before {
+    content: "text 1";
+    animation: anim2 ease-in-out 30s infinite;
+    padding-left: 10px;
+}
+
+
+@keyframes anim2 {
+    0% {
+        content: "הארון של מאי והדר 12.12";
+    }
+
+    20% {
+        content: "JUST JEANS! 25.10";
+    }
+
+    40% {
+        content: "יד שנייה במתחם התחנה- ירושלים 1.11";
+    }
+
+    60% {
+        content: "בואו לתרום- הכנפיים של קרמבו";
+    }
+
+    80% {
+        content: "אלגנט וקלאס 19.9";
+    }
+
+    100% {
+        content: "הארון של מאי והדר 12.12";
+    }
+}
+
+.newItems {
+    display: grid;
+
+        grid-column: 2/ 4;
+    background-color: antiquewhite;
+    padding: 10px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+#newItem {
+    width: 150px;
+    height: 150px;
+}
+
+
+.newItemHeader {
+    grid-area: header;
+    /* padding: 20px;
+   border: 2px solid white; */
+    margin-bottom: 20px;
+}
+
+.Item1 {
+    grid-area: item1;
+    padding: 20px white;
+    border: 2px solid white;
+    margin: 20px white;
+}
+
+
+
+.Item2 {
+    grid-area: item2;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.Item3 {
+    grid-area: item3;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.Item4 {
+    grid-area: item4;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.details1 {
+    grid-area: details1;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.details2 {
+    grid-area: details2;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.details3 {
+    grid-area: details3;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.details4 {
+    grid-area: details4;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.footer {
+
+    grid-area: footer;
+    /* padding: 20px;
+   border: 2px solid white; */
+    margin-bottom: 20px;
+
+}
+
+
+
+
+.news {
+    display: grid;
+    grid-template-areas:
+        'headerNews headerNews headerNews'
+        'news1 news2 news3 '
+        'detailsNews1 detailsnews2 detailsnews3';
+    background-color: antiquewhite;
+    grid-column: 2/ 4;
+    padding: 10px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+
+#news123 {
+    width: 250px;
+    height: 150px;
+}
+
+
+.newsHeader {
+    grid-area: headerNews;
+    padding: 20px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.news1 {
+    grid-area: news1;
+    /* padding: 20px white;
+   border: 2px solid white;
+   margin: 20px white; */
+}
+
+
+.news2 {
+    grid-area: news2;
+    /* padding: 20px;
+    border: 2px solid white;
+    margin: 20px; */
+}
+
+.news3 {
+    grid-area: news3;
+    /* padding: 20px;
+    border: 2px solid white;
+    margin: 20px; */
+}
+
+
+.detailsNews1 {
+    grid-area: detailsNews1;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.detailsNews2 {
+    grid-area: detailsNews2;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
+.detailsNews3 {
+    grid-area: detailsNews3;
+    padding: 20px;
+    border: 2px solid white;
+    margin: 20px;
+}
+
 
 .text {
     color: wheat;
     text-decoration: none;
-    font-family: alphab;
+    font-family: lato;
     font-size: 15px;
 }
 
-.footer {
-    background-color: #397e6c;
-    display: grid;
-    font-family: Tahoma;
-    grid-template-columns: auto;
-    grid-template-rows: 80px;
-    height: 80px;
-    justify-items: center;
+
+h1 {
+    color: darkgreen;
+    text-decoration: none;
+    font-family: latoBold;
+    font-size: 15px;
 }
+
