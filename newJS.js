@@ -136,3 +136,18 @@ function forgotPassword(EmailAdress){
 }
 
 }
+// Updating textbox about me
+
+ function myFunction() {
+  var x = document.getElementById("myText").value;
+     alert("Successfully submitted");
+
+}
+
+function addedToCart() {
+   alert("Item added successfully!");
+}
+function checkout() {
+    alert("Checked out!");
+}
+

@@ -1,14 +1,18 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Favorites - FashionSocial</title>
-    <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="../css/favorites.css">
-    <script src="../newJS.js"></script>
-</head>
 
+    <meta charset="utf-8" />
+    <title>Add new item - FashionSocial</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/addItemPage.css">
+    <script src="../newJS.js"></script>
+
+
+</head>
 <body>
+
     <div class="header">
         <div class="grid-container1">
 
@@ -40,36 +44,36 @@
             <a href="../html/myprofile.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
             <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
             <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
+            
         </div>
-
     </div>
+
     <div class="main">
         <div class="grid-container2">
 
             <div class="newItems">
-                <div class="newItemHeader"><h1>My Favorites</h1></div>
-                <div class="item1"><img id="newItem" src="../image/shorts1.jpeg" alt="item1"></div>
-                <div class="item2"><img id="newItem" src="../image/top.jpeg" alt="item2"></div>
-                <div class="item3"><img id="newItem" src="../image/shorts2.jpeg" alt="item3"></div>
-                <div class="item4"><img id="newItem" src="../image/jaket.jpeg" alt="item4"></div>
+                <div class="newItemHeader"><h1>Add new item</h1></div>
 
-                <div class="details1">White shorts<br>Style: Sport<br>Price: 30 NIS</div>
-                <div class="details2">Grey top<br>Style: Underwear<br>Price: 25 NIS</div>
-                <div class="details3">Grey loose shorts<br>Style: Casual<br>Price: 40 NIS</div>
-                <div class="details4">Grey jacket<br>Style: Casual<br>Price: 50 NIS</div>
+                <div class="name"><p>Enter item's name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <div class="style"><p>Enter item's style:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <div class="price"><p>Enter item's price:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <br />
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <br />
+                        <label for="profile_pic">Choose file to upload</label>
+                        <input type="file" id="profile_pic" name="profile_pic"
+                               accept=".jpg, .jpeg, .png">
+                    </div>
+                </form>
+                <br />
+                <br />
+                <div class="submit">
+                    <br />
+                    <br />
+                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Submit</button>
+                </div>
 
-                <div class="addtocart1">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart2">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart3">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart4">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
 
             </div>
 
@@ -86,5 +90,4 @@
     </div>
 
 </body>
-
 </html>

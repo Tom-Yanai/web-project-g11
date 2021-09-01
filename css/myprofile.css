@@ -65,9 +65,10 @@ body {
 .aboutme {
     grid-area: aboutme;
     padding: 20px;
-    border: 2px solid white;
     margin: 20px;
-    background-color: whitesmoke;
+    font-family: lato;
+    src: url("../Lato-Regular.ttf");
+    
 }
 
 .something {
@@ -154,6 +155,11 @@ body {
     width: 210px;
 }
 
+#myText{
+    height: 50px;
+    width:200px;
+    border: groove an;
+}
 
 .filterDiv {
     margin: 2px;
@@ -186,3 +192,17 @@ body {
     .btn.active {
         background-color: #cc96a5;
     }
+
+.Add {
+    background-color: wheat;
+    font-size: 15px;
+    font-family: cursive;
+    padding: 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 30%;
+    animation: pulse 4s infinite;
+}
+

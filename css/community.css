@@ -1,0 +1,124 @@
+.grid-container2{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+}
+
+.grid-container3{
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.grid-container4{
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+body {
+    background-image: url(../image/whiteFlowers.jpeg);
+    background-size: cover;
+    padding: 50px;
+    border: 1px solid white;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+
+
+.text1{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    color: black;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.community1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.community2 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.community3 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.community4 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+
+
+.text2{
+    grid-column: 2 / span 6;
+    grid-row: 1 / span 1;
+    color: black;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 20px;
+    text-align: center;
+}
+
+.text3{
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 1;
+    color: black;
+    text-decoration: none;
+    font-family: cursive;
+    font-size: 20px;
+    text-align: center;
+}
+
+::placeholder{
+    font-family: cursive;
+    font-size: 15px;
+}
+
+
+
+
+.sendB {
+    background-color: #526f2f;;
+    font-size: 25px;
+    font-family: cursive;
+    padding: 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+
+.sendB:hover {
+    opacity: 1;
+}
+
+
+@font-face{
+    font-family: alphab;
+    src: url("../Alphabetized\ Cassette\ Tapes\ Classic.ttf");
+}

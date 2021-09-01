@@ -4,7 +4,7 @@
 <head>
     <title>ContactUs | FashionSocial</title>
     <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="../css/contactUs.css">
     <script src="../JS.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -55,32 +55,31 @@
     <div class="main">
         <div class="grid-container2">
             <div class="text1">
-                <h1 style="color:#526f2f;;">Communities</h1>
-            </div>
-                <div class="community1"> <a href="../html/communityPage.html"><img id="community" src="../image/boho.jpg" alt="community1" width="100" height="100"></a> </div>
-                <div class="community2"> <a href="../html/communityPage.html"><img id="community" src="../image/denim.jpg" alt="community2" width="100" height="100"></a></div>
-                <div class="community3"><a href="../html/communityPage.html"><img id="community" src="../image/casual.jpg" alt="community3" width="100" height="100"></a> </div>
-                <div class="community4"><a href="../html/communityPage.html"><img id="community" src="../image/occasion.jpg" alt="community4" width="100" height="100"></a> </div>
-        
-        </div>
+
+            <h1 style="color:#526f2f;;">Contact Us</h1>
+
+            <form>
     
+                <label for="FullName"></label>
+                <input type="text" id="FullName" name="FullName" placeholder="Full Name : " style="width: 30%; height: 50px;">
 
-        <div class="grid-container3">   
-            <div class="text2">
+                <label for="Phone"></label>
+                <input type="text" id="Phone" name="Phone" placeholder="Phone Number : " style="width: 30%; height: 50px;" >
 
-                <h1 style="color:#526f2f;;">Comments</h1>
+                <label for="Email"></label>
+                <input type="text" id="Email" name="Email" placeholder="Email Address* : " style="width: 30%; height: 50px;">
+            
+                <br> <br>
 
+                <label for="Comment"></label>
+                <textarea id="Comment" name="Comment" cols="50" rows="4" placeholder="Description : " style="width: 92%; height: 150px;"></textarea>
+                <br> 
+                <button type="submit" class="sendB" onclick="MessBox_contactMe(document.getElementById('Phone').value,document.getElementById('Email').value,document.getElementById('Comment').value )"  value="Close">Send</button> 
+
+            
+            </form>
             </div>
         </div>
-
-        <div class="grid-container4"> 
-            <div class="text3">
-
-                <h1 style="color:#526f2f;;">Suggested communities</h1>
-
-            </div>
-        </div>
-
     </div>
 
 

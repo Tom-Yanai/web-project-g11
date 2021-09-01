@@ -3,9 +3,10 @@
 <html>
 <head>
     <title>My profile - FashionSocial</title>
-    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/myprofile.css">
-    <!--<script src="../JS.js"></script>-->
+    <script src="../newJS.js"></script>
+
 </head>
 
 <body>
@@ -36,6 +37,7 @@
 
         <div class="connect">
             <br>
+            <a href="../html/myprofile.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
             <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
             <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
         </div>
@@ -47,7 +49,7 @@
             <div class="headerLeft"><h2>Add new item</h2></div>
             <div class="left">
 
-                <div class="addItem"><a href="../html/favorites.html"><img id="addItem" src="../image/addItem-removebg-preview.png" alt="addItem" width="300px" height="300px"></a> </div>
+                <div class="addItem"><a href="../html/addItemPage.html"><img id="addItem" src="../image/addItem-removebg-preview.png" alt="addItem" width="300px" height="300px"></a> </div>
 
             </div>
 
@@ -58,13 +60,20 @@
 
 
             <div class="headerRight"><h2>My store</h2></div>
-            <div class="aboutme"><h2>ggggggggggggg</h2></div>
 
 
-            <div class="item9"><a href="../html/favorites.html"><img id="newItem" src="../image/pants.jpg" alt="item9"></a> </div>
-            <div class="item10"><a href="../html/favorites.html"><img id="newItem" src="../image/highheel.jpg" alt="item10"></a> </div>
-            <div class="item11"><a href="../html/favorites.html"><img id="newItem" src="../image/shoes.jpg" alt="item11"></a> </div>
-            <div class="item12"><a href="../html/favorites.html"><img id="newItem" src="../image/neckless.jpg" alt="item12"></a> </div>
+            <div class="aboutme">
+
+
+                About me:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="myText" value="Tell us about your store here">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="Add" onclick="myFunction()">Submit</button>
+            </div>
+
+
+            <div class="item9"><img id="newItem" src="../image/pants.jpg" alt="item9"> </div>
+            <div class="item10"><img id="newItem" src="../image/highheel.jpg" alt="item10"> </div>
+            <div class="item11"><img id="newItem" src="../image/shoes.jpg" alt="item11"> </div>
+            <div class="item12"><img id="newItem" src="../image/neckless.jpg" alt="item12"> </div>
 
             <div class="details9">Gal's store<br>Style: Dramatic, Goth</div>
             <div class="details10">Maya's store<br>Style: Party, Casual</div>
