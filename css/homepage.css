@@ -7,7 +7,7 @@
 }
 body{
 
-    background-image: url(../image/whiteFlowers.jpg) ;
+    background-image: url(../image/whiteFlowers.jpeg) ;
     background-size: cover;
     padding: 50px;
     border: 1px solid white;
@@ -93,18 +93,17 @@ body{
     float: right;
 }
 
-
 .footer {
 
     background-color: #397e6c;
-
+    grid-row: 5/5;
+    grid-column: 1/4;
     text-align: center;
     padding-top: 10px;
     padding-left: 80px;
     padding-bottom: 30px;
    /* float: right;*/
 }
-
 
 .connect{
     grid-column: 2 / span 1;
@@ -217,6 +216,7 @@ span::before {
     'item1 item2 item3 item4'
     'details1 details2 details3 details4';
     grid-column: 2/ 4;
+    grid-row: 1/2;
     background-color: antiquewhite;
     padding: 10px;
     border: 2px solid white;
@@ -308,6 +308,7 @@ span::before {
     'detailsNews1 detailsnews2 detailsnews3' ;
     background-color: antiquewhite;
     grid-column: 2/ 4;
+    grid-row: 3/ 4;
     padding: 10px;
     border: 2px solid white;
     margin: 20px;  

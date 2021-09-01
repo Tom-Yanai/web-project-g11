@@ -7,7 +7,7 @@
 }
 body{
 
-    background-image: url(../image/whiteFlowers.jpg) ;
+    background-image: url(../image/whiteFlowers.jpeg) ;
     background-size: cover;
     padding: 50px;
     border: 1px solid white;
@@ -112,7 +112,7 @@ body{
         color: wheat;
         text-decoration: none;
         font-family: lato;
-        font-size: 20px;
+        font-size: 15px;
      
     
 }
@@ -125,6 +125,15 @@ h1{
         font-size: 25PX;
 }
     
+
+
+.text:hover {
+  color: palevioletred;
+  text-decoration: none;
+  font-family: lato;
+  font-size: 15px;
+}
+
     
     
     

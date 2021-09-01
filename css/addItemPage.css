@@ -5,6 +5,7 @@
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
+    background-color: var(--mynewlighter);
 }
 
 body {
