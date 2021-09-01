@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <title>Add new item - FashionSocial</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="stylesheet" href="../css/addItemPage.css">
+    <script src="../newJS.js"></script>
+
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="grid-container1">
+
+            <div class="logoImg">
+                <img id="logoImg" src="../image/logoimg.png" alt="logo">
+            </div>
+
+            <div class="titleName">
+
+                <a id="titleName">FashionSocial</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+
+        <div class="navbar">
+            <br>
+            <a href="../html/homepage.html" class="text">&nbsp;Home</a>
+            <a href="../html/about.html" class="text" id="active">About</a>
+            <a href="../html/stores.html" class="text">Stores</a>
+            <a href="../html/community.html" class="text">Community</a>
+            <a href="../html/contactUs.html" class="text">Contact-us</a>
+            <a href="../html/myprofile.html" class="text">My-Profile</a>
+        </div>
+
+        <div class="connect">
+            <br>
+            <a href="../html/contact.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
+            <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
+            <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
+            
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="grid-container2">
+
+            <div class="newItems">
+                <div class="newItemHeader"><h1>Add new item</h1></div>
+
+                <div class="name"><p>Enter item's name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <div class="style"><p>Enter item's style:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <div class="price"><p>Enter item's price:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                <br />
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                        <br />
+                        <label for="profile_pic">Choose file to upload</label>
+                        <input type="file" id="profile_pic" name="profile_pic"
+                               accept=".jpg, .jpeg, .png">
+                    </div>
+                </form>
+                <br />
+                <br />
+                <div class="submit">
+                    <br />
+                    <br />
+                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Submit</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div id="footer">
+            <br>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
+        </div>
+    </div>
+
+</body>
+</html>
