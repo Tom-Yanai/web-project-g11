@@ -140,14 +140,17 @@ function forgotPassword(EmailAdress){
 
  function myFunction() {
   var x = document.getElementById("myText").value;
-     alert("Successfully submitted");
+     alert("Successfully submitted!");
 
 }
 
 function addedToCart() {
-   alert("Item added successfully!");
+    alert("Item added successfully!");
 }
+
 function checkout() {
     alert("Checked out!");
+    window.open('../html/homepage.html');
+    window.close();
 }
 
