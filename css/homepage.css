@@ -30,6 +30,16 @@ body{
     src: url("../VarelaRound-Regular.ttf");
 }
 
+@keyframes pulse {
+    0%,100% {
+        background-color: #bf8d69;
+    }
+
+    50% {
+        background-color: #ccae87;
+    }
+}
+
 .grid-container1{
   display: grid;
   grid-template-columns: 100px auto;
@@ -223,10 +233,12 @@ span::before {
     margin: 20px; 
 }
 
-#newItem{
+#newItem {
     width: 150px;
-    height: 150px;
-    
+    height: 200px;
+    background-size: cover;
+    object-fit: cover;
+    margin: auto;
 }
 
 
@@ -243,7 +255,6 @@ span::before {
    border: 2px solid white;
    margin: 20px white;
 }
-
 
 
 .Item2{

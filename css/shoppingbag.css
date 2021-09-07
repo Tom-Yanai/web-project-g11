@@ -1,7 +1,7 @@
 .grid-container2 {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 100px 270px 100px 80px;
+    grid-template-rows: 100px 270px 100px 80px 100px;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
@@ -19,7 +19,6 @@ body {
 #img {
     border: dotted #397e6c;
 }
-
 
 .item1 {
     padding: 20px;
@@ -112,14 +111,15 @@ body {
 .total {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row: 4;
+    grid-row: 5;
     text-align: center;
+    
 }
 
 .checkoutbutton {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row: 5;
+    grid-row: 6;
 }
 
 .Add {
@@ -128,9 +128,12 @@ body {
     font-family: cursive;
     padding: 20px;
     margin: 8px 0;
-    border: none;
+    border: solid white;
     cursor: pointer;
     opacity: 0.8;
     border-radius: 50%;
     animation: pulse 4s infinite;
 }
+
+
+

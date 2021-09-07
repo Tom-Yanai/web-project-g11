@@ -10,6 +10,7 @@
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
+
 }
 
 .addItem {
@@ -35,6 +36,7 @@
     padding: 10px;
     border: 2px solid white;
     background-color: antiquewhite;
+    margin: 20px;
 }
 
 .headerRight {
@@ -44,6 +46,7 @@
     padding: 10px;
     border: 2px solid white;
     background-color: antiquewhite;
+    margin: 20px;
 }
 
 
@@ -61,7 +64,6 @@ body {
     border: dotted #397e6c;
 }
 
-
 .aboutme {
     grid-area: aboutme;
     padding: 20px;
@@ -70,17 +72,6 @@ body {
     src: url("../Lato-Regular.ttf");
     
 }
-
-.something {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 2;
-    padding: 20px;
-    border: 2px solid white;
-    margin: 20px;
-    background-color: whitesmoke;
-}
-
 
 .item9 {
     grid-area: item9;
@@ -142,67 +133,20 @@ body {
     grid-area: details12;
 }
 
-.text1 {
-    grid-column: 1 / span 4;
-    grid-row: 1 / span 1;
-    text-decoration: none;
-    text-align: center;
-    color: #f4b7c7;
-    font-size: 20px;
-}
-
-#popup:hover {
-    width: 210px;
-}
-
 #myText{
     height: 50px;
     width:200px;
-    border: groove an;
+    border:ridge;
 }
 
-.filterDiv {
-    margin: 2px;
-    display: none; /* Hidden by default */
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-    display: block;
-}
-
-/* Style the buttons */
-.btn {
-    font-weight: bold;
-    font-family: cursive;
-    border: none;
-    outline: none;
-    padding: 12px 20px;
-    margin: 20px;
-    background-color: #f4b7c7;
-    cursor: pointer;
-}
-
-    /* Add a light grey background on mouse-over */
-    .btn:hover {
-        background-color: #ddd;
-    }
-
-    /* Add a dark background to the active button */
-    .btn.active {
-        background-color: #cc96a5;
-    }
-
-.Add {
+.submitbutton {
     background-color: wheat;
     font-size: 15px;
     font-family: cursive;
     padding: 20px;
     margin: 8px 0;
-    border: none;
+    border: solid white;
     cursor: pointer;
     opacity: 0.8;
     border-radius: 30%;
-    animation: pulse 4s infinite;
 }
-

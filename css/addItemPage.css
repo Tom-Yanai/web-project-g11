@@ -48,16 +48,18 @@ form {
 .submit {
     grid-column: 2;
     grid-row: 7;
+
 }
-.Add {
+
+.submitbutton {
     background-color: wheat;
     font-size: 15px;
     font-family: cursive;
     padding: 20px;
-    margin: 8px 0;
-    border: none;
+    margin: 8px;
+    border: solid white;
     cursor: pointer;
     opacity: 0.8;
     border-radius: 30%;
-    animation: pulse 4s infinite;
 }
+

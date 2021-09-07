@@ -31,6 +31,7 @@
     padding: 10px;
     border: 2px solid white;
     background-color: antiquewhite;
+    margin: 20px;
 }
 
 .headerRight {
@@ -41,9 +42,8 @@
     padding: 10px;
     border: 2px solid white;
     background-color: antiquewhite;
+    margin: 20px;
 }
-
-
 
 body {
     background-image: url(../image/whiteFlowers.jpeg);
@@ -64,7 +64,11 @@ body {
     padding: 20px;
     border: 2px solid white;
     margin: 20px;
+    
+}
 
+#newItem:hover {
+    width: 160px;
 }
 
 .item2 {
@@ -73,6 +77,7 @@ body {
     padding: 20px;
     border: 2px solid white;
     margin: 20px;
+    background-size: cover;
 }
 
 .item3 {
@@ -275,36 +280,3 @@ body {
 #popup:hover {
     width: 210px;
 }
-
-
-.filterDiv {
-    margin: 2px;
-    display: none; /* Hidden by default */
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-    display: block;
-}
-
-/* Style the buttons */
-.btn {
-    font-weight: bold;
-    font-family: cursive;
-    border: none;
-    outline: none;
-    padding: 12px 20px;
-    margin: 20px;
-    background-color: #f4b7c7;
-    cursor: pointer;
-}
-
-    /* Add a light grey background on mouse-over */
-    .btn:hover {
-        background-color: #ddd;
-    }
-
-    /* Add a dark background to the active button */
-    .btn.active {
-        background-color: #cc96a5;
-    }
