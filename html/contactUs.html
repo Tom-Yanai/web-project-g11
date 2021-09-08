@@ -57,8 +57,8 @@
     <div class="main">
         <div class="grid-container2">
             <div class="text1">
-
-            <h1 style="color:#526f2f;;">Contact Us</h1>
+                <div class="contact"> <h1 >Contact Us</h1> </div>
+            
 
             <form>
     
@@ -76,8 +76,12 @@
                 <label for="Comment"></label>
                 <textarea id="Comment" name="Comment" cols="50" rows="4" placeholder="Description : " style="width: 92%; height: 150px;"></textarea>
                 <br> 
-                <button type="submit" class="sendB" onclick="MessBox_contactMe(document.getElementById('Phone').value,document.getElementById('Email').value,document.getElementById('Comment').value )"  value="Close">Send</button> 
-
+                <button type="submit" class="sendB" onclick="MessageSent()"  value="Close">Send</button> 
+                <script>
+                    function MessageSent() {
+                      alert("Message Sent!");
+                    }
+                    </script>
             
             </form>
             </div>
