@@ -7,7 +7,7 @@
         'addtocart1 addtocart2 addtocart3 addtocart4';*/
     display: grid;
     grid-template-columns: auto auto auto auto ;
-    grid-template-rows: 100px 270px 100px 80px 100px;
+    grid-template-rows: auto auto auto auto;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
@@ -24,6 +24,22 @@ body {
 
 #img {
     border: dotted #397e6c;
+}
+
+.newCommunityHeader{
+     /*grid-area: aboutTheCommunity;*/
+    background-color: antiquewhite;
+    border: solid white;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row: 2;;*/
+     background-color: antiquewhite;
+     border: solid white;
+     text-align: center;
+     grid-column-start: 1;
+     grid-column-end: 5;
+     grid-row: 2;
 }
 
 .aboutTheCommunity {
