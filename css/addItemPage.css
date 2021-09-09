@@ -1,11 +1,11 @@
 ﻿.grid-container2 {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 100px 270px 100px;
+     
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
     background-color: var(--mynewlighter);
+    
 }
 
 body {
@@ -63,3 +63,16 @@ form {
     border-radius: 30%;
 }
 
+.newItems2{
+    display: grid;
+    text-align: center;
+    grid-area: a;
+    background-color: antiquewhite;
+    padding: 10px;
+    border: 2px solid white;
+    margin: 20px; 
+}
+
+.main{
+    text-align: center;  
+}

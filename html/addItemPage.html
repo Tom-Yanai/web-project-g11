@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 
     <meta charset="utf-8" />
@@ -11,6 +12,7 @@
 
 
 </head>
+
 <body>
 
     <div class="header">
@@ -41,54 +43,59 @@
 
         <div class="connect">
             <br>
-            <a href="../html/contact.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
-            <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
-            <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
-            
+            <a href="../html/contact.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png"
+                    alt="My profile"></a>
+            <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png"
+                    alt="Favorites"></a>
+            <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png"
+                    alt="Shopping bag"></a>
+
         </div>
     </div>
 
     <div class="main">
         <div class="grid-container2">
 
-            <div class="newItems">
-                <div class="newItemHeader"><h1>Add new item</h1></div>
+            
 
-                <div class="name"><p>Enter item's name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
-                <div class="style"><p>Enter item's style:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
-                <div class="price"><p>Enter item's price:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
-                <br />
-                <form method="post" enctype="multipart/form-data">
+            <div class="newItems2">
+                <div class="newItemHeader">
+                    <h1>Add new item</h1>
+                </div>
+                <form method="post" enctype="multipart/form-data" style="text-align: center;">
+
+
+                    <label for="itemName"><b>Item
+                            name:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" id="itemName" name="itemName" placeholder="Enter item name..."
+                        style="width: 30%; height: 50px;" required>
+                    <br>
+                    <br>
+                    <label for="style"><b>Item Style:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="style" id="style" name="style" maxlength="8" placeholder="Enter item style..."
+                        style="width: 30%; height: 50px;" required>
+                    <br>
+                    <br>
+                    <label for="price"><b>Item price:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="price" id="price" name="price" maxlength="8" placeholder="Enter item price..."
+                        style="width: 30%; height: 50px;" required>
+                    <br>
+                    <br>
                     <div>
                         <br />
                         <label for="profile_pic">Choose file to upload</label>
-                        <input type="file" id="profile_pic" name="profile_pic"
-                               accept=".jpg, .jpeg, .png">
+                        <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png">
                     </div>
+                    <button type="submit" class="sendB"
+                        onclick="MessBox_connectIN(document.getElementById('Emailin').value, document.getElementById('pwdin'))"
+                        value="Close">SUBMIT</button>
+                    
+
                 </form>
-                <br />
-                <br />
-                <!--   <div style="text-align: center;">
-        <button class="sendB"
-                onclick="signUpClick(),able_fn(),able_ln(),able_e_u(),able_p_u(), disdable_e_i(), disable_p_i()">
-            Sign
-            Up
-        </button>
-        <button class="sendB"
-                onclick="addedToCart(),able_fn_n(),disable_fn_n(),able_e_i(),able_p_i(), disable_fn(), disable_ln(), disable_e_u(),disable_p_u()">
-            Sign
-            In
-        </button>
-    </div>-->
-
-                <div class="submit">
-                    <br />
-                    <br />
-                    <button type="submit" class="submitbutton" onclick="addedToCart(),able_fn_n(),disable_fn_n(),disable_fn_s(),able_fn_s(),able_fn_p(),disable_ln_p()" value="Close">Submit</button>
-                </div>
-
-
             </div>
+
+
+           
 
         </div>
     </div>
@@ -96,11 +103,15 @@
     <div class="footer">
         <div id="footer">
             <br>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy
+                Policy</a>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping
+                Policy</a>
+            <a
+                class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
         </div>
     </div>
 
 </body>
+
 </html>

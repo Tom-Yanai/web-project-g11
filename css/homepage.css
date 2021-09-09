@@ -189,28 +189,29 @@ body{
 span::before {
         content: "text 1";
         animation: anim2 ease-in-out 30s infinite;
+        font-family: lato;
         padding-left: 10px;
 }
     
     
 @keyframes anim2 {
         0%{
-            content: "הארון של מאי והדר 12.12";
+            content:"May & Hadar closet's 12.12";
         }
         20%{
             content: "JUST JEANS! 25.10";
     
         }
         40%{
-            content: "יד שנייה במתחם התחנה- ירושלים 1.11";
+            content: "Second-hand in the 'station' area 1.11";
     
         }
         60%{
-            content: "בואו לתרום- הכנפיים של קרמבו";
+            content: "Let's donate - 'THE WINGS OF KREMBO'";
     
         }
         80%{
-            content: "אלגנט וקלאס 19.9";
+            content: "Elegant and classy 19.9";
     
         }
         100%{
