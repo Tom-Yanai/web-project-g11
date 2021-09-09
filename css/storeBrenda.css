@@ -1,7 +1,7 @@
 ﻿.grid-container2 {
     display: grid;
-    grid-template-columns: auto auto auto auto ;
-    grid-template-rows: 100px 270px 100px 80px 100px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 100px 270px 100px 80px 80px 100px;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
@@ -115,6 +115,25 @@ body {
 .addtocart4 {
     grid-column: 4;
     grid-row: 5;
+}
+.addtofav1 {
+    grid-column: 1;
+    grid-row: 6;
+}
+
+.addtofav2 {
+    grid-column: 2;
+    grid-row: 6;
+}
+
+.addtofav3 {
+    grid-column: 3;
+    grid-row: 6;
+}
+
+.addtofav4 {
+    grid-column: 4;
+    grid-row: 6;
 }
 
 .Add {

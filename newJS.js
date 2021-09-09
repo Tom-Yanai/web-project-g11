@@ -111,26 +111,53 @@ function able_p_i(){
 }
 
 
+function able_fn_n() {
+    document.getElementById('name').disabled = true;
+
+}
+
+function disable_fn_n() {
+    document.getElementById('name').disabled = false;
+
+}
 
 
+function disable_fn_s() {
+    document.getElementById('style').disabled = false;
+
+}
+
+function able_fn_s() {
+    document.getElementById('style').disabled = true;
+
+}
+
+function able_fn_p() {
+    document.getElementById('price').disabled = true;
+
+}
+
+function disable_ln_p() {
+    document.getElementById('price').disabled = false;
+
+}
 function forgotPassword(EmailAdress){
 
   var newPass = Math.random().toString(36).slice(-8);
 
   Email.send({ 
     Host: "smtp.gmail.com", 
-    Username: "chloecookies.isreal@gmail.com", 
-    Password: "Chloe123!", 
+    Username: "fashionsocial@gmail.com", 
+      Password: "fashionsocial123!",
     To: EmailAdress, 
-    From: "chloecookies.isreal@gmail.com", 
-    Subject: "Your Chloe's Cookies new password is ready" , 
-    Body: "Your new password is " + newPass +"." + " I will be happy to see you,Chloe.", 
+      From: "fashionsocial@gmail.com",
+    Subject: "Your new password is ready" , 
+    Body: "Your new password is " + newPass +"." + " I will be happy to see you.", 
   }) 
   
   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(EmailAdress) ) {
     alert("New password sent to your Email!");
-    window.open('../html/newGeneral.html');
-    window.close();
+
 } else{
   alert("Please enter valid Email address");
 }
@@ -145,6 +172,10 @@ function forgotPassword(EmailAdress){
 }
 
 function addedToCart() {
+    alert("Item added successfully!");
+}
+
+function addedTofav() {
     alert("Item added successfully!");
 }
 
