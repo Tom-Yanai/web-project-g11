@@ -179,9 +179,19 @@ function addedTofav() {
     alert("Item added successfully!");
 }
 
+function remove() {
+    alert("Item removed successfully!");
+}
+
 function checkout() {
     alert("Checked out!");
+}
+
+function placeOrder() {
+    alert("Payment succeed!");
     window.open('../html/homepage.html');
     window.close();
 }
+
+
 
