@@ -193,5 +193,24 @@ function placeOrder() {
     window.close();
 }
 
+const addNewItem = function (req, res) {
+    const newItem = {
+        "name": req.body.name,
+        "style": req.body.style,
+        "price": req.body.price,
+        "profile_pic": req.body.profile_pic
+    };
+    sql.query("Insert into item?", newItem, (err, mysqlres) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({ message: "error in creating item: " + err });
+            return;
+        }
+        console.log("created customer: ", { id: mysqlres.insertId, ...newItem });
+        res.send({ message: "new item created successfully!" });
+        return;
+    });
+}
+
 
 
