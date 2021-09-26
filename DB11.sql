@@ -2,7 +2,7 @@ CREATE DATABASE `web-project-g11`;
 drop table `web-project-g11`.user;
 drop table `web-project-g11`.store;
 drop table `web-project-g11`.item;
-
+drop table `web-project-g11`.userFavorites;
 
 create table `web-project-g11`.store
 (
@@ -21,15 +21,13 @@ create table `web-project-g11`.user
 	firstName varchar(500) not null,
     lastName varchar(500) not null,
     email varchar(500) not null,
-    pass varchar(500) not null,
-    store_id int not null,
-    FOREIGN KEY (store_id) REFERENCES store(store_id)
+    pass varchar(500) not null
 );
 
-INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass, store_id) VALUES (1, 'Brenda', 'Mills', 'Brenda@gmail.com', '123456', 1);
-INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass, store_id) VALUES (2, 'Tom', 'Yanai', 'Tom@gmail.com', '222333', 2);
-INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass, store_id) VALUES (3, 'Danit', 'Kiks', 'D@gmail.com', '11A5C', 3);
-INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass, store_id) VALUES (4, 'Shay', 'Piram', 'ShayP@gmail.com', 'qweasd', 4);
+INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass) VALUES (1, 'Brenda', 'Mills', 'Brenda@gmail.com', '123456');
+INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass) VALUES (2, 'Tom', 'Yanai', 'Tom@gmail.com', '222333');
+INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass) VALUES (3, 'Danit', 'Kiks', 'D@gmail.com', '11A5C');
+INSERT INTO `web-project-g11`.user (user_id, firstName, lastName, email, pass) VALUES (4, 'Shay', 'Piram', 'ShayP@gmail.com', 'qweasd');
 
 create table `web-project-g11`.item
 (
@@ -37,15 +35,13 @@ create table `web-project-g11`.item
 	name varchar(500) not null,
     style varchar(500) not null,
     price int not null,
-    photo longblob not null,
-    store_id int not null,
-    FOREIGN KEY (store_id) REFERENCES store(store_id)
+    photo longblob not null
 );
 
-INSERT INTO `web-project-g11`.user (item_id, name, style, price, photo, store_id) VALUES (1, 'Heart neckless', 'Accessories', 50, ???, 1);
-INSERT INTO `web-project-g11`.user (item_id, name, style, price, photo, store_id) VALUES (2, 'Colorful fly neckless', 'Accessories', 20, ???, 1);
-INSERT INTO `web-project-g11`.user (item_id, name, style, price, photo, store_id) VALUES (3, 'Two circles neckless', 'Accessories', 35, ???, 1);
-INSERT INTO `web-project-g11`.user (item_id, name, style, price, photo, store_id) VALUES (4, 'Butterfly neckless', 'Accessories', 45, ???, 1);
+INSERT INTO `web-project-g11`.item (item_id, name, style, price, photo) VALUES (1, 'Heart neckless', 'Accessories', 50, load_file('C:\Users\shayp\Desktop\web-project-g11\web-project-g11\image\jul4.jpeg'));
+INSERT INTO `web-project-g11`.item (item_id, name, style, price, photo, store_id) VALUES (2, 'Colorful fly neckless', 'Accessories', 20, ???, 1);
+INSERT INTO `web-project-g11`.item (item_id, name, style, price, photo, store_id) VALUES (3, 'Two circles neckless', 'Accessories', 35, ???, 1);
+INSERT INTO `web-project-g11`.item (item_id, name, style, price, photo, store_id) VALUES (4, 'Butterfly neckless', 'Accessories', 45, ???, 1);
 
 create table `web-project-g11`.userFavorites
 (
