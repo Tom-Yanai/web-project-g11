@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/connectPage.css">
     <script src="../newJS.js"></script>
+    <script src="../CRUD_functions.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -62,7 +63,8 @@
                     onclick="signInClick(),able_e_i(),able_p_i(), disable_fn(), disable_ln(), disable_e_u(),disable_p_u()">Sign
                     In</button>
             </div>
-            <form id="signup" style="display: none;">
+
+            <form action="http://localhost:8000/newUser" method="POST" id="signup" style="display: none;">
 
                 <label for="FirstName"> <b>First Name:</b> </label>
                 <input type="text" id="FirstName" name="FirstName" placeholder="Enter your first name .."
@@ -80,9 +82,11 @@
                 <input type="password" id="pwdup" name="pwdup" maxlength="8"
                     placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
                 <br>
-                <button type="submit" class="sendB"
-                    onclick="MessBox_connectUP(document.getElementById('FirstName').value,document.getElementById('LastName').value,document.getElementById('Emailup').value, document.getElementById('pwdup'))"
-                    value="Close">Go!</button>
+<!--                <button type="submit" class="sendB"-->
+<!--                    onclick="MessBox_connectUP(document.getElementById('FirstName').value,document.getElementById('LastName').value,document.getElementById('Emailup').value, document.getElementById('pwdup'))"-->
+<!--                    value="Close">Go!</button>-->
+
+                <input type="submit" value="Submit">
 
 
             </form>

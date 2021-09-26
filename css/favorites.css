@@ -1,7 +1,7 @@
 ﻿.grid-container2 {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 100px 270px 100px 80px 100px;
+    grid-template-rows: 100px 270px 100px 80px 100px 100px;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;

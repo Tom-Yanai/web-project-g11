@@ -1,7 +1,7 @@
 .grid-container2 {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 100px 270px 100px 80px 100px;
+    grid-template-rows: 100px 270px 100px 80px 100px 100px;
     justify-items: center;
     font-family: latoBold;
     background-size: cover;
@@ -111,7 +111,7 @@ body {
 .total {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row: 5;
+    grid-row: 6;
     text-align: center;
     
 }
@@ -119,7 +119,7 @@ body {
 .checkoutbutton {
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row: 6;
+    grid-row: 7;
 }
 
 .Add {
