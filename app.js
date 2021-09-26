@@ -1,17 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 8080
+const express = require('express');
+const app = express();
+const port = 8000;
 const path = require('path');
+const bodyParser = require("body-parser");
+const CRUD_operations = require("./CRUD_functions.js");
+
+app.use(express.static((path.join(__dirname, '/'))));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
-
-app.use(express.static('css'));
+    res.sendFile(path.join(__dirname, '/html/homepage.html'));
+});
 
 app.get('/stores', (req, res)=> {
     res.sendFile(path.join(__dirname, '/html/stores.html'));
@@ -62,5 +63,15 @@ app.get('/shoppingbag', (req, res) => {
 });
 
 app.get('/storeBrenda', (req, res) => {
-    res.sendFile(path.join(__dirname, '/html/homepage.html'));
+    res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
+});
+
+app.post("/newUser", CRUD_operations.createNewUser);
+app.post("/removeItem", CRUD_operations.removeItem);
+app.post("/addToCart", CRUD_operations.addedToCart);
+app.post("/addTofav", CRUD_operations.addedTofav);
+app.post("/checkout", CRUD_operations.checkout);
+
+app.listen(port, () => {
+    console.log(`app is listening at http://localhost:${port}`)
 });
