@@ -173,7 +173,7 @@ function forgotPassword(EmailAdress){
 
 function placeOrder() {
     alert("Payment succeed!");
-    window.open('../html/homepage.html');
+    window.open("http://localhost:8000/homepage");
     window.close();
 }
 

@@ -1,5 +1,4 @@
 const sql = require("./db.js");
-const user_id = require("./app.js");
 const createNewUser = function(req,res){
 // Validate request
     if (!req.body) {
@@ -9,21 +8,23 @@ const createNewUser = function(req,res){
         return;
     }
     const newUser = {
-        "user_id": 5,
         "firstName": req.body.FirstName,
         "lastName": req.body.LastName,
         "email": req.body.Emailup,
-        "pass": req.body.pwdup,
-        "store_id": 4
+        "pass": req.body.pwdup
     };
     sql.query("INSERT INTO user SET ?", newUser, (err, mysqlres) => {
+        
         if (err) {
             console.log("error: ", err);
-            res.status(400).send({message: "error in creating customer: " + err});
-            return;
+            res.status(400).send({message: "error in creating user: " + err});
+            
+        }
+        if (err == ER_DUP_ENTRY) {
+
+            res.status(400).send(alert("Email already exist. Please enter another one"));
         }
         res.send({ message: "new user created successfully" });
-        user_id++;
 
         return;
     });
@@ -91,6 +92,7 @@ function addedTofav(req,res) {
             res.status(400).send({message: "error in creating item: " + err});
             return;
         }
+        
         res.send({message: "new item created successfully!"});
         return;
         alert("Item removed successfully to favorites!");
