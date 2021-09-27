@@ -28,7 +28,8 @@ create table web_project_g11.item
     style varchar(500) not null,
     price int not null,
     size varchar(500) not null,
-    brand varchar(500) not null
+    brand varchar(500) not null,
+    photo longblob not null
 );
 
 create table web_project_g11.userFavorites

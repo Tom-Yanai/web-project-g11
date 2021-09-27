@@ -14,12 +14,12 @@ const createNewItem = function (req, res) {
         "price": req.body.price,
         "size": req.body.size,
         "brand": req.body.brand,
-
+        "photo": req.body.photo
     };
     sql.query("INSERT INTO item SET ?", NEWI, (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
-            res.status(400).send({ message: "error in creating user: " + err });
+            res.status(400).send({ message: "error in creating item: " + err });
             return;
         }
         res.send({ message: "new user created successfully" });
