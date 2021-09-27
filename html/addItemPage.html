@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/addItemPage.css">
     <script src="../newJS.js"></script>
+    <script src="../CRUD_functions.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 
 </head>
@@ -31,19 +33,19 @@
 
         <div class="navbar">
             <br>
-            <a href="http://localhost:8080/homepage" class="text">&nbsp;Home</a>
-            <a href="http://localhost:8080/about" class="text" id="active">About</a>
-            <a href="http://localhost:8080/stores" class="text">Stores</a>
-            <a href="http://localhost:8080/community" class="text">Community</a>
-            <a href="http://localhost:8080/contactUs" class="text">Contact-us</a>
-            <a href="http://localhost:8080/myprofile" class="text">My-Profile</a>
+            <a href="http://localhost:8000/homepage" class="text">&nbsp;Home</a>
+            <a href="http://localhost:8000/about" class="text" id="active">About</a>
+            <a href="http://localhost:8000/stores" class="text">Stores</a>
+            <a href="http://localhost:8000/community" class="text">Community</a>
+            <a href="http://localhost:8000/contactUs" class="text">Contact-us</a>
+            <a href="http://localhost:8000/myprofile" class="text">My-Profile</a>
         </div>
 
         <div class="connect">
             <br>
-            <a href="http://localhost:8080/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
-            <a href="http://localhost:8080/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
-            <a href="http://localhost:8080/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
+            <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
+            <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
+            <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
 
         </div>
 
@@ -54,26 +56,40 @@
 
             <div class="newItems">
                 <div class="newItemHeader"><h1>Add new item</h1></div>
-                <form method="post" enctype="multipart/form-data">
+                <form action="http://localhost:8000/newItem"  method="POST">
                     <div>
-                        <div class="name" id="name" name="name"><p>Enter item's name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
-                        <div class="style" id="style" name="style"><p>Enter item's style:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
-                        <div class="price" id="price" name="price"><p>Enter item's price:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" /></p></div>
+                        <label for="name">Enter item's name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="name" name="Name" style="width: 30%;">
+
+                        <br /><br />
+                        <label for="style">Enter item's style:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="style" name="style" oninput="style" style="width: 30%;">
+                        <br /><br />
+                        <label for="price"><b>Enter item's price:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="price" name="price" style="width: 30%;">
+                        <br /><br />
+                        <label for="size"><b>Enter item's size:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="size" name="size" style="width: 30%;">
+                        <br /><br />
+                        <label for="brand"><b>Enter item's brand:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="brand" name="brand" style="width: 30%;">
+
                         <br />
                         <br />
-                        <label for="profile_pic">Choose file to upload</label>
-                        <input type="file" id="profile_pic" name="profile_pic"
-                               accept=".jpg, .jpeg, .png">
+                        <!--<label for="profile_pic">Choose file to upload</label>
+        <input type="file" id="profile_pic" name="profile_pic"
+               accept=".jpg, .jpeg, .png">-->
+                    </div>
+                    <div class="submit">
+                        <br />
+                        <br />
+                        <input type="submit" class="submitbutton" value="Submit" />
                     </div>
                 </form>
                 <br />
                 <br />
 
-                <div class="submit">
-                    <br />
-                    <br />
-                    <button type="submit" class="submitbutton" onclick="addNewItem()" value="Close">Submit</button>
-                </div>
+                
             </div>
         </div>
     </div>

@@ -34,19 +34,19 @@
 
         <div class="navbar">
             <br>
-            <a href="http://localhost:8080/homepage" class="text">&nbsp;Home</a>
-            <a href="http://localhost:8080/about" class="text" id="active">About</a>
-            <a href="http://localhost:8080/stores" class="text">Stores</a>
-            <a href="http://localhost:8080/community" class="text">Community</a>
-            <a href="http://localhost:8080/contactUs" class="text">Contact-us</a>
-            <a href="http://localhost:8080/myprofile" class="text">My-Profile</a>
+            <a href="http://localhost:8000/homepage" class="text">&nbsp;Home</a>
+            <a href="http://localhost:8000/about" class="text" id="active">About</a>
+            <a href="http://localhost:8000/stores" class="text">Stores</a>
+            <a href="http://localhost:8000/community" class="text">Community</a>
+            <a href="http://localhost:8000/contactUs" class="text">Contact-us</a>
+            <a href="http://localhost:8000/myprofile" class="text">My-Profile</a>
         </div>
 
         <div class="connect">
             <br>
-            <a href="http://localhost:8080/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
-            <a href="http://localhost:8080/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
-            <a href="http://localhost:8080/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
+            <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
+            <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
+            <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
 
         </div>
 
@@ -60,7 +60,7 @@
                 <div class="contact"> <h1 >Contact Us</h1> </div>
             
 
-            <form>
+            <form action="http://localhost:8000/newContactRequest" method="POST">
     
                 <label for="FullName"></label>
                 <input type="text" id="FullName" name="FullName" placeholder="Full Name : " style="width: 30%; height: 50px;">
@@ -75,13 +75,14 @@
 
                 <label for="Comment"></label>
                 <textarea id="Comment" name="Comment" cols="50" rows="4" placeholder="Description : " style="width: 92%; height: 150px;"></textarea>
-                <br> 
-                <button type="submit" class="sendB" onclick="MessageSent()"  value="Close">Send</button> 
+                <br> <br> 
+                <button type="submit" class="sendB" value="Close">Send</button> 
+                
                 <script>
                     function MessageSent() {
                       alert("Message Sent!");
                     }
-                    </script>
+                </script>
             
             </form>
             </div>
