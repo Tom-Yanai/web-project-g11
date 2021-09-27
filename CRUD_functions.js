@@ -1,5 +1,37 @@
+const { response } = require("express");
 const sql = require("./db.js");
-const createNewUser = function(req,res){
+const createNewItem = function (req, res) {
+    // Validate request
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+        return;
+    }
+    const NEWI = {
+        "name": req.body.Name,
+        "style": req.body.style,
+        "price": req.body.price,
+        "size": req.body.size,
+        "brand": req.body.brand,
+
+    };
+    sql.query("INSERT INTO item SET ?", NEWI, (err, mysqlres) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({ message: "error in creating user: " + err });
+            return;
+        }
+        res.send({ message: "new user created successfully" });
+        if (err == ER_DUP_ENTRY) {
+            res.status(400).send(alert("Email already exist. Please enter another one"));
+        }
+        return;
+    });
+};
+
+
+const createNewUser = function (req, res) {
 // Validate request
     if (!req.body) {
         res.status(400).send({
@@ -14,21 +46,45 @@ const createNewUser = function(req,res){
         "pass": req.body.pwdup
     };
     sql.query("INSERT INTO user SET ?", newUser, (err, mysqlres) => {
-        
         if (err) {
             console.log("error: ", err);
             res.status(400).send({message: "error in creating user: " + err});
-            
-        }
-        if (err == ER_DUP_ENTRY) {
-
-            res.status(400).send(alert("Email already exist. Please enter another one"));
+            return;
         }
         res.send({ message: "new user created successfully" });
-
+        if (err == ER_DUP_ENTRY) {
+            res.status(400).send(alert("Email already exist. Please enter another one"));
+        }
         return;
     });
 };
+
+const createNewContactRequest = function (req, res) {
+    // Validate request
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+        return;
+    }
+    const newContactRequest = {
+        "FullName": req.body.FullName,
+        "Phone": req.body.Phone,
+        "Email": req.body.Email,
+        "Comment": req.body.Comment
+    };
+    sql.query("INSERT INTO contactUs SET ?", newContactRequest, (err, mysqlres) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({ message: "error in creating Contact Request: " + err });
+            return;
+        }
+        res.send({ message: "new Contact Request created successfully" });
+        return;
+    });
+}
+
+
 
 function MessBox_connectIN(email,password) {
     sql.query("SELECT * FROM users where email like ? and password like ?", email + '%' , password + '%', (err, mysqlres) => {
@@ -110,5 +166,7 @@ module.exports = {
     removeItem,
     addedTofav,
     checkout,
-    MessBox_connectIN
+    MessBox_connectIN,
+    createNewContactRequest,
+    createNewItem
 }

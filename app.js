@@ -66,11 +66,16 @@ app.get('/storeBrenda', (req, res) => {
     res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
 });
 
+
+
 app.post("/newUser", CRUD_operations.createNewUser);
+app.post("/newContactRequest", CRUD_operations.createNewContactRequest);
+app.post("/newItem", CRUD_operations.createNewItem);
 app.post("/removeItem", CRUD_operations.removeItem);
 app.post("/addToCart", CRUD_operations.addedToCart);
 app.post("/addTofav", CRUD_operations.addedTofav);
 app.post("/checkout", CRUD_operations.checkout);
+
 
 app.listen(port, () => {
     console.log(`app is listening at http://localhost:${port}`)

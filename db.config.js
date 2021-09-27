@@ -2,5 +2,5 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "password",
-    DB: "web-project-g11"
+    DB: "web_project_g11"
 };
