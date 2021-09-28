@@ -84,6 +84,42 @@ const createNewContactRequest = function (req, res) {
     });
 }
 
+const LogIn = function (request, response) {
+    var loginClient = {
+        "Emailin": request.body.Emailin,
+        "password": request.body.password,
+    };
+
+    if (loginClient.Emailin && loginClient.password) {
+        sql.query('SELECT * FROM user WHERE Emailin=? AND password = ?', [loginClient.Emailin, loginClient.password], function (err, result) {
+            if (err) {
+                console.log("error: ", err);
+                response.status(400).send({ message: "error in finding user: " + err });
+                return;
+            }
+
+            else if (result.length > 0) {
+                var UserObj = {};
+
+                LoggedInUser = JSON.parse(JSON.stringify(result));
+                console.log(LoggedInUser);
+                console.log(LoggedInUser[0].email);
+                response.render('homepage', { 'LoggedInUser': LoggedInUser });
+            } else {
+                console.log("user name or password are incurrect");
+                response.send(('<script>alert("user name or password are incurrect");window.location.href = "http://localhost:8000/homepage";</script>'));
+
+                return;
+            }
+            response.end();
+        });
+    } else {
+        console.log("Please enter Username and Password!");
+        response.send(('<script>alert("Please enter Username and Password!");window.location.href = "http://localhost:3000/homepage";</script>'));
+
+    }
+}
+
 
 
 function MessBox_connectIN(email,password) {
@@ -168,5 +204,6 @@ module.exports = {
     checkout,
     MessBox_connectIN,
     createNewContactRequest,
-    createNewItem
+    createNewItem,
+    LogIn
 }
