@@ -4,6 +4,7 @@ const port = 8000;
 const path = require('path');
 const bodyParser = require("body-parser");
 const CRUD_operations = require("./CRUD_functions.js");
+const newJS = require("./newJS.js");
 
 app.use(express.static((path.join(__dirname, '/'))));
 app.use(bodyParser.json());
@@ -71,6 +72,7 @@ app.get('/storeBrenda', (req, res) => {
 app.post("/newUser", CRUD_operations.createNewUser);
 app.post("/newContactRequest", CRUD_operations.createNewContactRequest);
 app.post("/newItem", CRUD_operations.createNewItem);
+app.post("/logIn", CRUD_operations.LogIn);
 app.post("/removeItem", CRUD_operations.removeItem);
 app.post("/addToCart", CRUD_operations.addedToCart);
 app.post("/addTofav", CRUD_operations.addedTofav);

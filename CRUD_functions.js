@@ -1,5 +1,6 @@
 const { response } = require("express");
 const sql = require("./db.js");
+const path = require('path');
 const createNewItem = function (req, res) {
     // Validate request
     if (!req.body) {
@@ -19,13 +20,9 @@ const createNewItem = function (req, res) {
     sql.query("INSERT INTO item SET ?", NEWI, (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
-            res.status(400).send({ message: "error in creating item: " + err });
-            return;
+            res.sendFile(path.join(__dirname, '/html/addItemPage.html'));
         }
-        res.send({ message: "new user created successfully" });
-        if (err == ER_DUP_ENTRY) {
-            res.status(400).send(alert("Email already exist. Please enter another one"));
-        }
+        res.sendFile(path.join(__dirname, '/html/myprofile.html'));
         return;
     });
 };
@@ -42,19 +39,20 @@ const createNewUser = function (req, res) {
     const newUser = {
         "firstName": req.body.FirstName,
         "lastName": req.body.LastName,
-        "email": req.body.Emailup,
+        "FavoritStyle": req.body.FavoritStyle,
+        "email": req.body.Emailup.replace('@','_'),
         "pass": req.body.pwdup
     };
     sql.query("INSERT INTO user SET ?", newUser, (err, mysqlres) => {
         if (err) {
+            if (err === 'ER_DUP_ENTRY') {
+              res.sendFile(path.join(__dirname, '/html/contact.html'));
+            }
             console.log("error: ", err);
-            res.status(400).send({message: "error in creating user: " + err});
+              res.sendFile(path.join(__dirname, '/html/contact.html'));
             return;
         }
-        res.send({ message: "new user created successfully" });
-        if (err == ER_DUP_ENTRY) {
-            res.status(400).send(alert("Email already exist. Please enter another one"));
-        }
+        res.sendFile(path.join(__dirname, '/html/homepage.html'));
         return;
     });
 };
@@ -76,51 +74,60 @@ const createNewContactRequest = function (req, res) {
     sql.query("INSERT INTO contactUs SET ?", newContactRequest, (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
-            res.status(400).send({ message: "error in creating Contact Request: " + err });
+            res.sendFile(path.join(__dirname, '/html/contactUs.html'));
             return;
         }
-        res.send({ message: "new Contact Request created successfully" });
+        res.sendFile(path.join(__dirname, '/html/homepage.html'));
         return;
     });
 }
 
-const LogIn = function (request, response) {
+const LogIn = function (req, res) {
     var loginClient = {
-        "Emailin": request.body.Emailin,
-        "password": request.body.password,
+        "email": req.body.Emailin.replace('@','_'),
+        "pass": req.body.pwdin
     };
-
-    if (loginClient.Emailin && loginClient.password) {
-        sql.query('SELECT * FROM user WHERE Emailin=? AND password = ?', [loginClient.Emailin, loginClient.password], function (err, result) {
-            if (err) {
-                console.log("error: ", err);
-                response.status(400).send({ message: "error in finding user: " + err });
-                return;
-            }
-
-            else if (result.length > 0) {
-                var UserObj = {};
-
-                LoggedInUser = JSON.parse(JSON.stringify(result));
-                console.log(LoggedInUser);
-                console.log(LoggedInUser[0].email);
-                response.render('homepage', { 'LoggedInUser': LoggedInUser });
-            } else {
-                console.log("user name or password are incurrect");
-                response.send(('<script>alert("user name or password are incurrect");window.location.href = "http://localhost:8000/homepage";</script>'));
-
-                return;
-            }
-            response.end();
-        });
-    } else {
-        console.log("Please enter Username and Password!");
-        response.send(('<script>alert("Please enter Username and Password!");window.location.href = "http://localhost:3000/homepage";</script>'));
-
-    }
+    sql.query('SELECT * FROM user WHERE email = ? AND pass = ?', [loginClient.email, loginClient.pass], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+            res.sendFile(path.join(__dirname, '/html/contact.html'));
+            return;
+        } else if (result.length > 0) {
+            res.sendFile(path.join(__dirname, '/html/homepage.html'));
+        } else {
+            console.log("user name or password are incorrect");
+            res.sendFile(path.join(__dirname, '/html/contact.html'));
+            return;
+        }
+    });
+//    } else {
+//        console.log("Please enter Username and Password!");
+//        response.send(('<script>alert("Please enter Username and Password!");window.location.href = "http://localhost:3000/homepage";</script>'));
+//
+//    }
 }
 
-
+function forgotPassword(EmailAddress){
+    sql.query('SELECT * FROM user WHERE email = ? ',[EmailAddress], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+            response.status(400).send({ message: "error in finding user: " + err });
+            return;
+        } else if (result.length > 0) {
+              var newPass = Math.random().toString(36).slice(-8);
+              sql.query("UPDATE user SET pass= ? WHERE email = ?", [newPass, EmailAddress], (err, mysqlres) => {
+                   if (err) {
+                      console.log("error: ", err);
+                      response.status(400).send({ message: "error in updating user: " + err });
+                      return;
+                  }
+              })
+              console.log("New password - " + newPass);
+              res.sendFile(path.join(__dirname, '/html/contact.html'));
+            }
+            alert("Email doesn't exists in our systems");
+        })
+}
 
 function MessBox_connectIN(email,password) {
     sql.query("SELECT * FROM users where email like ? and password like ?", email + '%' , password + '%', (err, mysqlres) => {
@@ -133,23 +140,28 @@ function MessBox_connectIN(email,password) {
     });
 }
 
-const addedToCart = function (req, res) {
+function addedToCart(name,style,price,pic) {
     const newItem = {
-        "name": req.body.name,
-        "style": req.body.style,
-        "price": req.body.price,
-        "profile_pic": req.body.profile_pic
+        "name": name,
+        "style": style,
+        "price": price,
+        "profile_pic": pic
     };
-    sql.query("Insert into shoppingBag?", newItem, (err, mysqlres) => {
+    sql.query("Insert into shoppingbag SET ?", newItem, (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
-            res.status(400).send({message: "error in creating item: " + err});
+            if (window.location.pathname.indexOf("Brenda") > -1) {
+//            res.status(400).send({message: "error in creating item: " + err});
+                res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
+            }
             return;
         }
-        res.send({message: "new item created successfully!"});
+        if (window.location.pathname.indexOf("Brenda") > -1) {
+            res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
+        }
         return;
     });
-    alert("Item added successfully!");
+//    alert("Item added successfully!");
 }
 
 function removeItem(req,res) {

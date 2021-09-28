@@ -35,14 +35,24 @@ create table web_project_g11.item
 
 create table web_project_g11.userFavorites
 (
-    favorite_id int NOT NULL AUTO_INCREMENT primary key,
-	about varchar(500) null
+    item_id int NOT NULL AUTO_INCREMENT primary key,
+	name varchar(500) not null,
+    style varchar(500) not null,
+    price int not null,
+    size varchar(500) not null,
+    brand varchar(500) not null,
+    photo longblob not null
 );
 
 create table web_project_g11.shoppingbag
 (
-    shoppingbag_id int NOT NULL AUTO_INCREMENT primary key,
-	about varchar(500) null
+    item_id int NOT NULL AUTO_INCREMENT primary key,
+	name varchar(500) not null,
+    style varchar(500) not null,
+    price int not null,
+    size varchar(500) not null,
+    brand varchar(500) not null,
+    photo longblob not null
 );
 
 create table web_project_g11.contactUs
