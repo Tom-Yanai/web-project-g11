@@ -18,7 +18,8 @@ create table web_project_g11.user
     email varchar(500) NOT NULL primary key,
 	firstName varchar(500) not null,
     lastName varchar(500) not null,
-    pass varchar(500) not null
+    pass varchar(500) not null,
+    FavoritStyle varchar(500) not null
 );
 
 create table web_project_g11.item
