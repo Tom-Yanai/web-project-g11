@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/storeBrenda.css">
     <script src="../newJS.js"></script>
+    <script src="../CRUD_functions.js"></script>
 
 </head>
 
@@ -28,19 +29,19 @@
 
         <div class="navbar">
             <br>
-            <a href="../html/homepage.html" class="text">&nbsp;Home</a>
-            <a href="../html/about.html" class="text" id="active">About</a>
-            <a href="../html/stores.html" class="text">Stores</a>
-            <a href="../html/community.html" class="text">Community</a>
-            <a href="../html/contactUs.html" class="text">Contact-us</a>
-            <a href="../html/myprofile.html" class="text">My-Profile</a>
+            <a href="http://localhost:8000/homepage" class="text">&nbsp;Home</a>
+            <a href="http://localhost:8000/about" class="text" id="active">About</a>
+            <a href="http://localhost:8000/stores" class="text">Stores</a>
+            <a href="http://localhost:8000/community" class="text">Community</a>
+            <a href="http://localhost:8000/contactUs" class="text">Contact-us</a>
+            <a href="http://localhost:8000/myprofile" class="text">My-Profile</a>
         </div>
 
         <div class="connect">
             <br>
-            <a href="../html/contact.html"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
-            <a href="../html/favorites.html"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
-            <a href="../html/shoppingbag.html"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
+            <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
+            <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
+            <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
             
         </div>
     </div>
@@ -65,7 +66,7 @@
                 <div class="details4">Heart neckless<br>Style: Accessories<br>Price: 50 NIS</div>
 
                 <div class="addtocart1">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
+                    <button type="submit" class="Add" onclick="addedToCart('Butterfly neckless','Accessories',45,'../image/jul1.jpeg')" value="Close">Add to cart</button>
                 </div>
                 <div class="addtocart2">
                     <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>

@@ -102,13 +102,11 @@
                        placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
                 <br><br />
 
-
-
                 <input type="submit" class="sendB" value="Go!">
 
             </form>
 
-            <form id="signin" style="display: none;">
+            <form action="http://localhost:8000/logIn" method="POST" id="signin" style="display: none;">
 
 
                 <label for="Emailin"><b>Email:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -117,13 +115,15 @@
                 <br>
                 <label for="pwdin"><b>Password:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="password" id="pwdin" name="pwdin" maxlength="8" placeholder="Enter your password"
-                       style="width: 30%; height: 50px;" required>
+                       style="width: 30%; height: 50px;">
                 <br>
-                <button type="submit" class="sendB" onclick="LogIn()" value="Close">Go!</button>
+                <!--<button type="submit" class="sendB" onclick="LogIn()" value="Close">Go!</button>-->
                 <button class="sendB" onclick="forgotPassword(document.getElementById('Emailin').value)"
                         value="close">
                     Forgot my password
                 </button>
+
+                <input type="submit" name="action" value="login" />
             </form>
 
         </div>
@@ -144,3 +144,10 @@
             <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
         </div>
     </div>
+    <script>
+        if (window.location.href.indexOf("newUser") != -1)
+            alert("error in creating user. Please try again (try using a different email)");
+        else if (window.location.href.indexOf("logIn") != -1)
+            alert("user name or password are incorrect");
+    </script>
+</body>
