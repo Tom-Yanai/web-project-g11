@@ -1,6 +1,7 @@
 const { response } = require("express");
 const sql = require("./db.js");
 const path = require('path');
+const { Script } = require("vm");
 const createNewItem = function (req, res) {
     // Validate request
     if (!req.body) {
@@ -206,7 +207,6 @@ function addedTofav(req,res) {
 function checkout() {
     alert("Checked out!");
 }
-
 
 module.exports = {
     createNewUser,

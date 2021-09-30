@@ -13,6 +13,16 @@
 
 </head>
 
+<script>
+    function saveDataSession() {
+        var e = document.getElementById("FavoritStyle");
+        var strUser = e.options[e.selectedIndex].text;
+        sessionStorage.setItem('Style', strUser)
+    }
+
+</script>
+
+
 <body>
     <div class="header">
         <div class="grid-container1">
@@ -102,7 +112,7 @@
                        placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
                 <br><br />
 
-                <input type="submit" class="sendB" value="Go!">
+                <input type="submit" class="sendB" value="Go!" onclick="this.form.submit(); saveDataSession();">
 
             </form>
 
