@@ -141,28 +141,6 @@ function disable_ln_p() {
     document.getElementById('price').disabled = false;
 
 }
-function forgotPassword(EmailAdress){
-
-  var newPass = Math.random().toString(36).slice(-8);
-
-  Email.send({ 
-    Host: "smtp.gmail.com", 
-    Username: "fashionsocial@gmail.com", 
-      Password: "fashionsocial123!",
-    To: EmailAdress, 
-      From: "fashionsocial@gmail.com",
-    Subject: "Your new password is ready" , 
-    Body: "Your new password is " + newPass +"." + " I will be happy to see you.", 
-  }) 
-  
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(EmailAdress) ) {
-    alert("New password sent to your Email!");
-
-} else{
-  alert("Please enter valid Email address");
-}
-
-}
 // Updating textbox about me
 
  function myFunction() {
@@ -176,6 +154,7 @@ function placeOrder() {
     window.open("http://localhost:8000/homepage");
     window.close();
 }
+
 
 
 
