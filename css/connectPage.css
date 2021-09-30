@@ -1,8 +1,8 @@
 
-.grid-container2{
+.grid-container2 {
     display: grid;
     grid-template-columns: 300px auto auto;
-    grid-template-rows: 450px 100px;
+    grid-template-rows: 450px 100px 40px;
     grid-gap: 40px;
     padding: 50px;
     /* margin: 100px; */
