@@ -91,15 +91,14 @@
             alert("log in successfully!");
         }
         else if (window.location.href.indexOf("newUser") != -1) {
-            alert("new user created successfully!");
-            var data = sessionStorage.getItem('Style');
-            swal("Hi!\nWe saw that you especially like " + data + "-style clothes, so to make it easier to get started on the site and find what you love.\n we want to recommend you a community that will suit you exactly! The “My Clothes” community that contains clothes that are mostly in " + data + "-style, your favorite.\nEnjoy!");
+            alert("new user was created successfully!");
         }
         else if (window.location.href.indexOf("newContactRequest") != -1) {
             alert("new contact request was sent successfully!");
         }
         else if (window.location.href.indexOf("connect") != -1) {
             alert("Email doesn't exists in our systems");
+        }
     </script>
 </body>
 </html>

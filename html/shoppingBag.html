@@ -42,7 +42,7 @@
             <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
             <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
             <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
-
+            
         </div>
 
     </div>
@@ -78,19 +78,19 @@
                     </div>
                 </form>
             </div>
-        </div>
+    </div>
 
         <script>
-            var div = document.createElement("div");
-            var h3 = document.createElement("h3");
-            if (window.location.search.substring(8) != null)
-                h3.innerHTML = "Total Amount: " + window.location.search.substring(8) + " NIS";
+            var div =document.createElement("div");
+            var h3=document.createElement("h3");
+            if (window.location.search.substring(8) === null)
+                h3.innerHTML="Total Amount: 0 NIS";
             else {
-                h3.innerHTML = "Total Amount: 0 NIS";
+                h3.innerHTML="Total Amount: "+window.location.search.substring(8)+ " NIS";
             }
-            div.setAttribute('id', "total");
-            div.setAttribute('style', "line-height:5em");
-            div.setAttribute('class', "total");
+            div.setAttribute('id',"total");
+            div.setAttribute('style',"line-height:5em");
+            div.setAttribute('class',"total");
             div.appendChild(h3);
             document.getElementById('cart').appendChild(div);
         </script>
@@ -105,14 +105,14 @@
                 alert("error while checking out, please try again");
         </script>
 
-        <div class="footer">
-            <div id="footer">
-                <br>
-                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
-                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
-                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
-            </div>
+    <div class="footer">
+        <div id="footer">
+            <br>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
+            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
         </div>
+    </div>
 
 </body>
 

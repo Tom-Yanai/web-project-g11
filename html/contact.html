@@ -111,17 +111,14 @@
                 <input type="password" id="pwdup" name="pwdup" maxlength="8"
                        placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
                 <br><br />
-                <label for="about"><b>Tell us about your store:</b></label>&nbsp;&nbsp;
+                <label for="about"><b>Tell us about your store:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" id="about" name="about" placeholder="Enter your about .."
                        style="width: 30%; height: 50px;" required>
                 <br>
-                <br />
                 <label for="photo">Choose a photo of you to upload: </label>&nbsp&nbsp&nbsp
                 <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
 
                 <br><br>
-
-                <br />
 
                 <input type="submit" class="sendB" value="Go!" onclick="this.form.submit(); saveDataSession();">
 
@@ -138,14 +135,8 @@
                 <input type="password" id="pwdin" name="pwdin" maxlength="8" placeholder="Enter your password"
                        style="width: 30%; height: 50px;">
                 <br>
-                <!--<button type="submit" class="sendB" onclick="LogIn()" value="Close">Go!</button>-->
-                <button class="sendB" onclick="forgotPassword(document.getElementById('Emailin').value)"
-                        value="close">
-                    Forgot my password
-                </button>
-
                 <input type="submit" class="sendB" name="action" value="login" />
-                <input type="submit" class="sendB" name="action" value="forgotPass">
+                <input type="submit" class="sendB" name="action" value="forgot Password">
             </form>
 
         </div>
@@ -169,10 +160,9 @@
     <script>
         if (window.location.href.indexOf("newUser") != -1)
             alert("error in creating user. Please try again (try using a different email)");
-        else if (window.location.href.indexOf("contact?login") != -1)
-            alert("user name or password are incorrect");
         else if (window.location.href.indexOf("contact?forgot") != -1)
             alert("new password is  " + window.location.search.substring(8));
-
+        else if (window.location.href.indexOf("contact?login") != -1)
+            alert ("user name or password are incorrect")
     </script>
 </body>
