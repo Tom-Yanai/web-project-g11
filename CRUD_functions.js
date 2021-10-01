@@ -42,7 +42,8 @@ const createNewUser = function (req, res) {
         "lastName": req.body.LastName,
         "FavoritStyle": req.body.FavoritStyle,
         "email": req.body.Emailup.replace('@','_'),
-        "pass": req.body.pwdup
+        "pass": req.body.pwdup,
+        "photo": req.body.photo
     };
     sql.query("INSERT INTO user SET ?", newUser, (err, mysqlres) => {
         if (err) {

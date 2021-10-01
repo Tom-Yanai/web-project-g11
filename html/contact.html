@@ -110,9 +110,14 @@
                 <label for="pwdup"><b>Password:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="password" id="pwdup" name="pwdup" maxlength="8"
                        placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
-                <br><br />
+                <br><br /><br />
+                <label for="photo">Choose a photo of you to upload: </label>&nbsp&nbsp&nbsp
+                <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
 
-                     <input type="submit" class="sendB" value="Go!" onclick="this.form.submit(); saveDataSession();">
+                <br><br>
+                <br />
+
+                <input type="submit" class="sendB" value="Go!" onclick="this.form.submit(); saveDataSession();">
 
             </form>
 

@@ -19,7 +19,8 @@ create table web_project_g11.user
 	firstName varchar(500) not null,
     lastName varchar(500) not null,
     pass varchar(500) not null,
-    FavoritStyle varchar(500) not null
+    FavoritStyle varchar(500) not null,
+    photo longblob not null
 );
 
 create table web_project_g11.item
