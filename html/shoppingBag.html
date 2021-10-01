@@ -42,7 +42,7 @@
             <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
             <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
             <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
-            
+
         </div>
 
     </div>
@@ -60,40 +60,59 @@
                 <div class="details3">Butterfly gold earrings<br>Style: Casual<br>Price: 30 NIS</div>
                 <div class="details4">White T-shirt<br>Style: Casual<br>Price: 20 NIS</div>
 
-                <div class="remove1">
-                    <button type="submit" class="Add" onclick="remove()" value="Close">Remove item</button>
-                </div>
-                <div class="remove2">
-                    <button type="submit" class="Add" onclick="remove()" value="Close">Remove item</button>
-                </div>
-                <div class="remove3">
-                    <button type="submit" class="Add" onclick="remove()" value="Close">Remove item</button>
-                </div>
-                <div class="remove4">
-                    <button type="submit" class="Add" onclick="remove()" value="Close">Remove item</button>
-                </div>
+                <form action="http://localhost:8000/removeItemFromCart" method="POST" id="cart">
+                    <div class="remove1">
+                        <button type="submit" class="Add" name="item1" value="Close">Remove item</button>
+                    </div>
+                    <div class="remove2">
+                        <button type="submit" class="Add" name="item2" value="Close">Remove item</button>
+                    </div>
+                    <div class="remove3">
+                        <button type="submit" class="Add" name="item3" value="Close">Remove item</button>
+                    </div>
+                    <div class="remove4">
+                        <button type="submit" class="Add" name="item4" value="Close">Remove item</button>
+                    </div>
+                    <div class="checkoutbutton">
+                        <button type="submit" class="checkOutDesign" name="checkout" value="Close">Check out</button>
+                    </div>
+                </form>
             </div>
+        </div>
 
+        <script>
+            var div = document.createElement("div");
+            var h3 = document.createElement("h3");
+            if (window.location.search.substring(8) != null)
+                h3.innerHTML = "Total Amount: " + window.location.search.substring(8) + " NIS";
+            else {
+                h3.innerHTML = "Total Amount: 0 NIS";
+            }
+            div.setAttribute('id', "total");
+            div.setAttribute('style', "line-height:5em");
+            div.setAttribute('class', "total");
+            div.appendChild(h3);
+            document.getElementById('cart').appendChild(div);
+        </script>
+        <script>
+            if (window.location.href.indexOf("shoppingbag?cart=1") != -1)
+                alert("item was removed from shopping bag successfully");
+            else if (window.location.href.indexOf("shoppingbag?cart=2") != -1)
+                alert("error while removing from shopping bag, please try again");
+            else if (window.location.href.indexOf("shoppingbag?cart=3") != -1)
+                alert("checked out successfully!");
+            else if (window.location.href.indexOf("shoppingbag?cart=4") != -1)
+                alert("error while checking out, please try again");
+        </script>
 
-
-            <div id="total" style="line-height:5em" class="total"><h3>Total amount: 125 NIS</h3></div>
-
-            <div class="checkoutbutton">
-                <button onclick="checkout()" type="submit" class="checkOutDesign" value="Close">Check out</button>
-              
+        <div class="footer">
+            <div id="footer">
+                <br>
+                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
+                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
+                <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
             </div>
-
         </div>
-    </div>
-
-    <div class="footer">
-        <div id="footer">
-            <br>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping Policy</a>
-            <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
-        </div>
-    </div>
 
 </body>
 

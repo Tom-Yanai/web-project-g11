@@ -110,18 +110,24 @@
                 <label for="pwdup"><b>Password:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="password" id="pwdup" name="pwdup" maxlength="8"
                        placeholder="Choose a password (max 8 digits)" style="width: 30%; height: 50px;" required>
-                <br><br /><br />
+                <br><br />
+                <label for="about"><b>Tell us about your store:</b></label>&nbsp;&nbsp;
+                <input type="text" id="about" name="about" placeholder="Enter your about .."
+                       style="width: 30%; height: 50px;" required>
+                <br>
+                <br />
                 <label for="photo">Choose a photo of you to upload: </label>&nbsp&nbsp&nbsp
                 <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
 
                 <br><br>
+
                 <br />
 
                 <input type="submit" class="sendB" value="Go!" onclick="this.form.submit(); saveDataSession();">
 
             </form>
 
-            <form action="http://localhost:8000/logIn" method="POST" id="signin" style="display: none;">
+            <form action="http://localhost:8000/connect" method="POST" id="signin" style="display: none;">
 
 
                 <label for="Emailin"><b>Email:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -139,6 +145,7 @@
                 </button>
 
                 <input type="submit" class="sendB" name="action" value="login" />
+                <input type="submit" class="sendB" name="action" value="forgotPass">
             </form>
 
         </div>
@@ -162,7 +169,10 @@
     <script>
         if (window.location.href.indexOf("newUser") != -1)
             alert("error in creating user. Please try again (try using a different email)");
-        else if (window.location.href.indexOf("logIn") != -1)
+        else if (window.location.href.indexOf("contact?login") != -1)
             alert("user name or password are incorrect");
+        else if (window.location.href.indexOf("contact?forgot") != -1)
+            alert("new password is  " + window.location.search.substring(8));
+
     </script>
 </body>

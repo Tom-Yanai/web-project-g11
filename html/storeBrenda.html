@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../css/homepage.css">
     <link rel="stylesheet" href="../css/storeBrenda.css">
     <script src="../newJS.js"></script>
-    <script src="../CRUD_functions.js"></script>
 
 </head>
 
@@ -42,7 +41,7 @@
             <a href="http://localhost:8000/contact"><img id="connectImg" src="../image/myprofile-removebg-preview.png" alt="My profile"></a>
             <a href="http://localhost:8000/favorites"><img id="connectImg" src="../image/fav-removebg-preview.png" alt="Favorites"></a>
             <a href="http://localhost:8000/shoppingbag"><img id="connectImg" src="../image/bag-removebg-preview.png" alt="Shopping bag"></a>
-            
+
         </div>
     </div>
     <div class="main">
@@ -65,30 +64,34 @@
                 <div class="details3">Colorful fly neckless<br>Style: Accessories<br>Price: 20 NIS</div>
                 <div class="details4">Heart neckless<br>Style: Accessories<br>Price: 50 NIS</div>
 
-                <div class="addtocart1">
-                    <button type="submit" class="Add" onclick="addedToCart('Butterfly neckless','Accessories',45,'../image/jul1.jpeg')" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart2">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart3">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtocart4">
-                    <button type="submit" class="Add" onclick="addedToCart()" value="Close">Add to cart</button>
-                </div>
-                <div class="addtofav1">
-                    <button type="submit" class="Add" onclick="addedTofav()" value="Close">Add to fav</button>
-                </div>
-                <div class="addtofav2">
-                    <button type="submit" class="Add" onclick="addedTofav()" value="Close">Add to fav</button>
-                </div>
-                <div class="addtofav3">
-                    <button type="submit" class="Add" onclick="addedTofav()" value="Close">Add to fav</button>
-                </div>
-                <div class="addtofav4">
-                    <button type="submit" class="Add" onclick="addedTofav()" value="Close">Add to fav</button>
-                </div>
+                <form action="http://localhost:8000/addToCart" method="POST" id="cart">
+                    <div class="addtocart1">
+                        <button type="submit" class="Add" name="item1" value="Close">Add to cart</button>
+                    </div>
+                    <div class="addtocart2">
+                        <button type="submit" class="Add" name="item2" value="Close">Add to cart</button>
+                    </div>
+                    <div class="addtocart3">
+                        <button type="submit" class="Add" name="item3" value="Close">Add to cart</button>
+                    </div>
+                    <div class="addtocart4">
+                        <button type="submit" class="Add" name="item4" value="Close">Add to cart</button>
+                    </div>
+                </form>
+                <form action="http://localhost:8000/addTofav" method="POST" id="fav">
+                    <div class="addtofav1">
+                        <button type="submit" class="Add" name="fav1" value="Close">Add to fav</button>
+                    </div>
+                    <div class="addtofav2">
+                        <button type="submit" class="Add" name="fav2" value="Close">Add to fav</button>
+                    </div>
+                    <div class="addtofav3">
+                        <button type="submit" class="Add" name="fav3" value="Close">Add to fav</button>
+                    </div>
+                    <div class="addtofav4">
+                        <button type="submit" class="Add" name="fav4" value="Close">Add to fav</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -101,6 +104,19 @@
             <a class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newsletter</a><br>
         </div>
     </div>
+
+    <script>
+        if (window.location.href.indexOf("storeBrenda?cart=1") != -1)
+            alert("item was added to shopping bag successfully");
+        else if (window.location.href.indexOf("storeBrenda?fav=1") != -1)
+            alert("item was added to favorites successfully");
+        else if (window.location.href.indexOf("storeBrenda?cart=2") != -1)
+            alert("error while adding to cart, please try again");
+        else if (window.location.href.indexOf("storeBrenda?fav=2") != -1)
+            alert("error while adding to favorites, please try again");
+        else if (window.location.href.indexOf("storeBrenda?fav=3") != -1)
+            alert("item is already in your favorites!");
+    </script>
 
 </body>
 
