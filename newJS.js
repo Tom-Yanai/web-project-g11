@@ -141,13 +141,6 @@ function disable_ln_p() {
     document.getElementById('price').disabled = false;
 
 }
-// Updating textbox about me
-
- function myFunction() {
-  var x = document.getElementById("myText").value;
-     alert("Successfully submitted!");
-
-}
 
 function placeOrder() {
     alert("Payment succeed!");

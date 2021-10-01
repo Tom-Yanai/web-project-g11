@@ -59,8 +59,14 @@ app.get('/payment', (req, res) => {
     res.sendFile(path.join(__dirname, '/html/payment.html'));
 });
 
-app.get('/shoppingbag', (req, res) => {
-    res.sendFile(path.join(__dirname, '/html/shoppingbag.html'));
+app.get('/shoppingbag(\\?amount)?', (req, res) => {
+    if (req.query.amount || req.query.cart) {
+        console.log("y")
+        res.sendFile(path.join(__dirname, '/html/shoppingbag.html'));
+    } else {
+        console.log("x")
+        CRUD_operations.calcAmount(req,res);
+    }
 });
 
 app.get('/storeBrenda', (req, res) => {
@@ -72,11 +78,11 @@ app.get('/storeBrenda', (req, res) => {
 app.post("/newUser", CRUD_operations.createNewUser);
 app.post("/newContactRequest", CRUD_operations.createNewContactRequest);
 app.post("/newItem", CRUD_operations.createNewItem);
-app.post("/logIn", CRUD_operations.LogIn);
-app.post("/removeItem", CRUD_operations.removeItem);
+app.post("/connect", CRUD_operations.connect);
+app.post("/removeItemFromCart", CRUD_operations.removeItemFromCart);
+app.post("/removeItemFromFav", CRUD_operations.removeItemFromFav);
 app.post("/addToCart", CRUD_operations.addedToCart);
 app.post("/addTofav", CRUD_operations.addedTofav);
-app.post("/checkout", CRUD_operations.checkout);
 
 
 app.listen(port, () => {

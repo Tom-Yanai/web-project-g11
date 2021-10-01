@@ -2,8 +2,8 @@ const { response } = require("express");
 const sql = require("./db.js");
 const path = require('path');
 const { Script } = require("vm");
+
 const createNewItem = function (req, res) {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
@@ -16,7 +16,8 @@ const createNewItem = function (req, res) {
         "price": req.body.price,
         "size": req.body.size,
         "brand": req.body.brand,
-        "photo": req.body.photo
+        "photo": req.body.photo,
+        "store_id": req.body.store
     };
     sql.query("INSERT INTO item SET ?", NEWI, (err, mysqlres) => {
         if (err) {
@@ -30,7 +31,6 @@ const createNewItem = function (req, res) {
 
 
 const createNewUser = function (req, res) {
-// Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
@@ -43,6 +43,7 @@ const createNewUser = function (req, res) {
         "FavoritStyle": req.body.FavoritStyle,
         "email": req.body.Emailup.replace('@','_'),
         "pass": req.body.pwdup,
+        "about": req.body.about,
         "photo": req.body.photo
     };
     sql.query("INSERT INTO user SET ?", newUser, (err, mysqlres) => {
@@ -60,7 +61,6 @@ const createNewUser = function (req, res) {
 };
 
 const createNewContactRequest = function (req, res) {
-    // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
@@ -84,6 +84,14 @@ const createNewContactRequest = function (req, res) {
     });
 }
 
+const connect = function (req,res) {
+    if (req.body.action === "login") {
+        LogIn(req,res);
+    } else {
+        forgotPassword(req,res);
+    }
+}
+
 const LogIn = function (req, res) {
     var loginClient = {
         "email": req.body.Emailin.replace('@','_'),
@@ -98,26 +106,26 @@ const LogIn = function (req, res) {
             res.sendFile(path.join(__dirname, '/html/homepage.html'));
         } else {
             console.log("user name or password are incorrect");
-            res.sendFile(path.join(__dirname, '/html/contact.html'));
+            var url = new URL ("http://localhost:8000/contact?login=1")
+            res.writeHead(301,{Location: url});
+            res.end();
             return;
         }
     });
-//    } else {
-//        console.log("Please enter Username and Password!");
-//        response.send(('<script>alert("Please enter Username and Password!");window.location.href = "http://localhost:3000/homepage";</script>'));
-//
-//    }
 }
 
-function forgotPassword(EmailAddress){
-    sql.query('SELECT * FROM user WHERE email = ? ',[EmailAddress], (err, result) => {
+const forgotPassword = function (req, res) {
+    var client = {
+        "email": req.body.Emailin.replace('@','_')
+    };
+    sql.query('SELECT * FROM user WHERE email = ? ', client.email, (err, result) => {
         if (err) {
             console.log("error: ", err);
             response.status(400).send({ message: "error in finding user: " + err });
             return;
         } else if (result.length > 0) {
               var newPass = Math.random().toString(36).slice(-8);
-              sql.query("UPDATE user SET pass= ? WHERE email = ?", [newPass, EmailAddress], (err, mysqlres) => {
+              sql.query("UPDATE user SET pass= ? WHERE email = ?", [newPass, client.email], (err, mysqlres) => {
                    if (err) {
                       console.log("error: ", err);
                       response.status(400).send({ message: "error in updating user: " + err });
@@ -125,98 +133,255 @@ function forgotPassword(EmailAddress){
                   }
               })
               console.log("New password - " + newPass);
-              res.sendFile(path.join(__dirname, '/html/contact.html'));
-            }
-            alert("Email doesn't exists in our systems");
-        })
+              var url = new URL ("http://localhost:8000/contact?forgot=" + newPass)
+              res.writeHead(301,{Location: url});
+              res.end();
+         } else {
+              res.sendFile(path.join(__dirname, '/html/homepage.html'));
+         }
+    })
 }
 
-function MessBox_connectIN(email,password) {
-    sql.query("SELECT * FROM users where email like ? and password like ?", email + '%' , password + '%', (err, mysqlres) => {
-        if (err) {
-            console.log("error: ", err);
-            return 0;
-        }
-        console.log("got user by name...");
-        return 1;
-    });
-}
+const addedToCart = function (req,res) {
+    var newItem = {};
+    if (req.body.item1) {
+        newItem = {
+            "Name": 'Butterfly neckless',
+            "style": 'Accessories',
+            "price": 45,
+            "size": 'M',
+            "brand": 'Accessory',
+            "photo": '/image/jul1.jpeg',
+            "store_id": '1'
+        };
+    } else if (req.body.item2) {
+        newItem = {
+            "Name": 'Two circles neckless',
+            "style": 'Accessories',
+            "price": 35 ,
+            "size": 'M',
+            "brand": 'Accessory',
+            "photo": '/image/jul2.jpeg',
+            "store_id": '1'
+        };
+    } else if (req.body.item3) {
+        newItem = {
+            "Name": 'Colorful fly neckless',
+            "style": 'Accessories',
+            "price": 20,
+            "size": 'M',
+            "brand": 'Accessory',
+            "photo": '/image/jul3.jpeg',
+            "store_id": '1'
+        };
+    } else if (req.body.item4) {
+        newItem = {
+            "Name": 'Heart neckless',
+            "style": 'Accessories',
+            "price": 50,
+            "size": 'M',
+            "brand": 'Accessory',
+            "photo": '/image/jul4.jpeg',
+            "store_id": '1'
+        };
+    }
 
-function addedToCart(name,style,price,pic) {
-    const newItem = {
-        "name": name,
-        "style": style,
-        "price": price,
-        "profile_pic": pic
-    };
     sql.query("Insert into shoppingbag SET ?", newItem, (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
-            if (window.location.pathname.indexOf("Brenda") > -1) {
-//            res.status(400).send({message: "error in creating item: " + err});
-                res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
-            }
+            var url = new URL ("http://localhost:8000/storeBrenda?cart=2")
+            res.writeHead(301,{Location: url});
+            res.end();
             return;
         }
-        if (window.location.pathname.indexOf("Brenda") > -1) {
-            res.sendFile(path.join(__dirname, '/html/storeBrenda.html'));
-        }
+        var url = new URL ("http://localhost:8000/storeBrenda?cart=1")
+        res.writeHead(301,{Location: url});
+        res.end();
         return;
     });
-//    alert("Item added successfully!");
 }
 
-function removeItem(req,res) {
-    const item = {
-        "name": req.body.name,
-        "style": req.body.style,
-        "price": req.body.price,
-        "profile_pic": req.body.profile_pic
-    };
-        sql.query("Delete from shoppingBag ?", item, (err, mysqlres) => {
-            if (err) {
-                console.log("error: ", err);
-                res.status(400).send({message: "error in creating item: " + err});
+function removeItemFromCart(req,res) {
+     var newItem = {};
+     var deleteOne = false;
+        if (req.body.checkout) {
+            sql.query("TRUNCATE TABLE shoppingbag", (err, mysqlres) => {
+                 if (err) {
+                      var url = new URL ("http://localhost:8000/shoppingbag?cart=4")
+                      res.writeHead(301,{Location: url});
+                      res.end();
+                      return;
+                 }
+                 var url = new URL ("http://localhost:8000/shoppingbag?cart=3")
+                 res.writeHead(301,{Location: url});
+                 res.end();
+                 return;
+             });
+        } else if (req.body.item2) {
+              newItem = {
+                  "Name": 'Two circles neckless',
+              };
+              deleteOne = true;
+        } else if (req.body.item3) {
+              newItem = {
+                  "Name": 'Colorful fly neckless',
+              };
+              deleteOne = true;
+        } else if (req.body.item4) {
+              newItem = {
+                  "Name": 'Heart neckless',
+              };
+              deleteOne = true;
+        } else if (req.body.item1) {
+             newItem = {
+                "Name": 'Butterfly neckless',
+             };
+             deleteOne = true;
+        }
+        if (deleteOne) {
+            sql.query("Delete from shoppingbag WHERE Name=?", newItem.Name, (err, mysqlres) => {
+                if (err) {
+                     var url = new URL ("http://localhost:8000/shoppingbag?cart=2")
+                     res.writeHead(301,{Location: url});
+                     res.end();
+                     return;
+                }
+                var url = new URL ("http://localhost:8000/shoppingbag?cart=1")
+                res.writeHead(301,{Location: url});
+                res.end();
                 return;
+            });
+        }
+}
+
+function removeItemFromFav(req,res) {
+     var newItem = {};
+        if (req.body.fav1) {
+          newItem = {
+              "Name": 'Butterfly neckless',
+          };
+        } else if (req.body.fav2) {
+          newItem = {
+              "Name": 'Two circles neckless',
+          };
+        } else if (req.body.fav3) {
+          newItem = {
+              "Name": 'Colorful fly neckless',
+          };
+        } else if (req.body.fav4) {
+          newItem = {
+              "Name": 'Heart neckless',
+          };
+        }
+        sql.query("Delete from userfavorites WHERE Name=?", newItem.Name, (err, mysqlres) => {
+            if (err) {
+                 var url = new URL ("http://localhost:8000/favorites?fav=2")
+                 res.writeHead(301,{Location: url});
+                 res.end();
+                 return;
             }
-            res.send({message: "new item created successfully!"});
+            var url = new URL ("http://localhost:8000/favorites?fav=1")
+            res.writeHead(301,{Location: url});
+            res.end();
             return;
-            alert("Item removed successfully!");
         });
 }
 
 function addedTofav(req,res) {
-    const item = {
-        "name": req.body.name,
-        "style": req.body.style,
-        "price": req.body.price,
-        "profile_pic": req.body.profile_pic
-    };
-    sql.query("Delete from favorites ?", item, (err, mysqlres) => {
-        if (err) {
-            console.log("error: ", err);
-            res.status(400).send({message: "error in creating item: " + err});
-            return;
-        }
-        
-        res.send({message: "new item created successfully!"});
-        return;
-        alert("Item removed successfully to favorites!");
-    });
+   var newItem = {};
+       if (req.body.fav1) {
+           newItem = {
+               "Name": 'Butterfly neckless',
+               "style": 'Accessories',
+               "price": 45,
+               "size": 'M',
+               "brand": 'Accessory',
+               "photo": '/image/jul1.jpeg',
+               "store_id": '1'
+           };
+       } else if (req.body.fav2) {
+           newItem = {
+               "Name": 'Two circles neckless',
+               "style": 'Accessories',
+               "price": 35 ,
+               "size": 'M',
+               "brand": 'Accessory',
+               "photo": '/image/jul2.jpeg',
+               "store_id": '1'
+           };
+       } else if (req.body.fav3) {
+           newItem = {
+               "Name": 'Colorful fly neckless',
+               "style": 'Accessories',
+               "price": 20,
+               "size": 'M',
+               "brand": 'Accessory',
+               "photo": '/image/jul3.jpeg',
+               "store_id": '1'
+           };
+       } else if (req.body.fav4) {
+           newItem = {
+               "Name": 'Heart neckless',
+               "style": 'Accessories',
+               "price": 50,
+               "size": 'M',
+               "brand": 'Accessory',
+               "photo": '/image/jul4.jpeg',
+               "store_id": '1'
+           };
+       }
+         sql.query('SELECT * FROM userfavorites WHERE Name = ? ', newItem.Name, (err, result) => {
+                        if (err) {
+                            console.log("error: ", err);
+                            response.status(400).send({ message: "error in finding user: " + err });
+                            return;
+                        } else if (result.length > 0) {
+                              var url = new URL ("http://localhost:8000/storeBrenda?fav=3")
+                              res.writeHead(301,{Location: url});
+                              res.end();
+                         } else {
+                            sql.query("Insert into userfavorites SET ?", newItem, (err, mysqlres) => {
+                                  if (err) {
+                                      console.log("error: ", err);
+                                      var url = new URL ("http://localhost:8000/storeBrenda?fav=2")
+                                      res.writeHead(301,{Location: url});
+                                      res.end();
+                                      return;
+                                  }
+                               var url = new URL ("http://localhost:8000/storeBrenda?fav=1")
+                               res.writeHead(301,{Location: url});
+                               res.end();
+                               return;
+                              });
+                         }
+         })
 }
 
-function checkout() {
-    alert("Checked out!");
+const calcAmount = function (req,res) {
+     sql.query('SELECT sum(price) as amount FROM shoppingbag', (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+            response.status(400).send({ message: "error  " + err });
+            return;
+        } else {
+            var resultAsString = JSON.stringify(result);
+            var amount = resultAsString.substring(11,resultAsString.length-2);
+            console.log(amount)
+            var url = new URL ("http://localhost:8000/shoppingbag?amount="+amount)
+            res.writeHead(301,{Location: url});
+            res.end();
+         }
+    })
 }
 
 module.exports = {
     createNewUser,
     addedToCart,
-    removeItem,
+    removeItemFromCart,
+    removeItemFromFav,
     addedTofav,
-    checkout,
-    MessBox_connectIN,
     createNewContactRequest,
     createNewItem,
-    LogIn
+    connect,
+    calcAmount
 }
