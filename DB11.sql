@@ -7,12 +7,6 @@ drop table web_project_g11.userFavorites;
 drop table web_project_g11.shoppingbag;
 drop table web_project_g11.contactUs;
 
-create table web_project_g11.store
-(
-    store_id int NOT NULL AUTO_INCREMENT primary key,
-	about varchar(500) null
-);
-
 create table web_project_g11.user
 (
     email varchar(500) NOT NULL primary key,
@@ -31,7 +25,8 @@ create table web_project_g11.item
     price int not null,
     size varchar(500) not null,
     brand varchar(500) not null,
-    photo longblob not null
+    photo longblob not null,
+    store_id varchar (500) not null
 );
 
 create table web_project_g11.userFavorites
